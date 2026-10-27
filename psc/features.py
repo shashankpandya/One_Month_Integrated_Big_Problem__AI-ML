@@ -23,16 +23,16 @@ SOURCES = {
     "All sources fused": sum(GROUPS.values(), []),
 }
 LABELS = {
-    "r_f1": "f1 change (%)", "r_f2": "f2 change (%)", "r_f3": "f3 change (%)", "r_f4": "f4 change (%)",
+    "r_f1": "change of f1 (%)", "r_f2": "change of f2 (%)", "r_f3": "change of f3 (%)", "r_f4": "change of f4 (%)",
     "mac1": "MAC mode 1", "mac2": "MAC mode 2", "phi_asym": "mode-1 edge asymmetry", "z1": "damping mode 1",
     "r_d_mean": "load-test deflection change (%)", "r_d_asym": "deflection asymmetry G1-G6 (%)",
-    "r_d_max": "max girder deflection change (%)", "r_e_mean": "soffit strain change (%)",
-    "r_e_max": "max girder strain change (%)", "lev_mean": "mid-span level change (mm)",
-    "lev_asym": "level asymmetry G1-G6 (mm)", "lev_min": "largest sag of a girder (mm)", "vw_mean": "VW strain change (ue)", "vw_max": "max VW change (ue)",
-    "brg_min": "min bearing movement ratio", "brg_asym": "bearing movement A-B (mm/C)",
-    "UPV_min": "min UPV (km/s)", "R_min": "min rebound no.", "HCP_min": "most negative HCP (mV)",
-    "rho_min": "min resistivity (kOhm cm)", "cover_min": "min cover (mm)", "carb_margin": "carbonation - cover (mm)",
-    "crack_w": "max crack width (mm)", "crack_flex": "flexural crack width (mm)", "crack_long": "crack along bars/ducts (mm)", "spall_area": "spalled area (m2)", "n_rust": "rust-stain locations",
+    "r_d_max": "largest girder deflection change (%)", "r_e_mean": "soffit strain change (%)",
+    "r_e_max": "largest girder strain change (%)", "lev_mean": "mid-span level change (mm)",
+    "lev_asym": "level asymmetry G1-G6 (mm)", "lev_min": "largest sag of a girder (mm)", "vw_mean": "VW strain change (µε)", "vw_max": "largest VW strain change (µε)",
+    "brg_min": "bearing movement ratio", "brg_asym": "bearing movement A - B (mm/°C)",
+    "UPV_min": "lowest UPV (km/s)", "R_min": "lowest rebound number", "HCP_min": "most negative HCP (mV)",
+    "rho_min": "lowest resistivity (kΩcm)", "cover_min": "lowest cover (mm)", "carb_margin": "carbonation depth - cover (mm)",
+    "crack_w": "max crack width (mm)", "crack_flex": "flexural crack width (mm)", "crack_long": "crack along bars/ducts (mm)", "spall_area": "spalled area (m²)", "n_rust": "rust-stain locations",
     "cs_girder": "girder condition state", "cs_bearing": "bearing condition state", "joint_leak": "joint leaking",
 }
 

@@ -1,5 +1,7 @@
 # B33 - 33 m post-tensioned PSC I-girder bridge, CE60258 integrated big problem
 
+Shashank Pandya (23CE10064), Department of Civil Engineering, IIT Kharagpur
+
 One bridge followed from configuration to a maintenance decision:
 design and prestressing -> healthy baseline -> inspection, NDT and monitoring -> deterioration ->
 synthetic data -> features -> AI/ML assessment -> year-18 case study -> maintenance scheme.

@@ -321,31 +321,31 @@
    [
     "Clean and extend drainage spouts",
     "within 1 month",
-    "blocked / short drainage spouts wetting the outer girder (VI)",
+    "blocked or short drain spouts wetting the outer girder (inspection)",
     "spouts discharge clear of girder soffit, add drip groove"
    ],
    [
     "Replace strip-seal expansion joint",
     "within 3 months",
-    "expansion joint seal leaking (VI)",
+    "expansion joint seal leaking (inspection)",
     "stops water and silt reaching bearings, anchorages and pier cap"
    ],
    [
     "Jack deck and replace / reset bearings",
     "within 6 months",
-    "practically no bearing movement at one end + bearing distress (VI)",
+    "practically no bearing movement at one end; bearing distress seen at inspection",
     "jacking points on end diaphragm (designed for this), lift <= 10 mm"
    ],
    [
     "Concrete repair: remove carbonated / delaminated cover, treat bars, polymer-modified mortar",
     "within 6 months",
-    "HCP -456 mV with resistivity 11 kOhm cm, spalling/rust (NDT + VI)",
+    "HCP -456 mV with resistivity 11 k\u03a9cm; spalling and rust (NDT, inspection)",
     "after marking out by hammer tapping and half-cell map"
    ],
    [
     "Anti-carbonation coating on repaired and low-cover zones",
     "after repair",
-    "low cover zones",
+    "zones with low cover",
     "extends time to re-initiation"
    ],
    [
@@ -357,19 +357,19 @@
    [
     "Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages",
     "within 3 months",
-    "corrosion near tendon anchorages / ducts, ML p(CO) = 1.00",
+    "corrosion near the tendon anchorages; probability of corrosion from the models 1.00",
     "only direct way to confirm strand corrosion inside the duct"
    ],
    [
     "Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder",
     "within 6 months",
-    "estimated extra prestress loss 4.4 +- 3.2 %, p(PL) = 0.15; trend alarms: VW strain G1, level G1",
+    "estimated extra loss of prestress in G1 4.4 \u00b1 3.2 %; trend alarms on VW strain G1, level G1",
     "measures the remaining force rather than inferring it"
    ],
    [
     "Detailed structural assessment with measured losses (SLS decompression, ULS, shear at the end zone)",
     "within 3 months",
-    "rare-combination soffit margin +0.09 MPa with the estimated loss",
+    "soffit margin against cracking only +0.09 MPa (rare combination) with the estimated loss",
     "decides whether strengthening is needed"
    ],
    [
@@ -381,7 +381,7 @@
    [
     "Additional instrumentation: crack gauges, extra VW gauges at the end zone, bearing LVDTs on all girders",
     "within 1 month",
-    "monitoring alarm: f1 residual, f2 residual, bearing B movement, bearing A movement, VW strain G1, level G1",
+    "monitoring alarms on f1 residual, f2 residual, bearing B movement, bearing A movement, VW strain G1, level G1",
     "to watch the suspect area until the repair"
    ],
    [
@@ -393,7 +393,7 @@
    [
     "Re-inspection and repeat monitoring campaign after the works",
     "6 months after works",
-    "close the loop: confirm the effect of the works",
+    "to confirm the effect of the works and set a new baseline",
     "new baseline for the repaired bridge"
    ]
   ],

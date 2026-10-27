@@ -52,30 +52,30 @@ def decide(ev):
     worst = max(g.values()) if g else 1
 
     if g.get("DR", 1) >= 3:
-        why("drain", "blocked / short drainage spouts wetting the outer girder (VI)")
+        why("drain", "blocked or short drain spouts wetting the outer girder (inspection)")
     if g.get("EJ", 1) >= 3:
-        why("joint", "expansion joint seal leaking (VI)")
+        why("joint", "expansion joint seal leaking (inspection)")
     if ev["bearing_ratio"] < 0.5 or g.get("BRG", 1) >= 4:
-        why("bearing", "practically no bearing movement at one end + bearing distress (VI)" if ev["bearing_ratio"] < 0.1
-            else f"bearing movement {ev['bearing_ratio']:.2f} of healthy at one end + bearing distress (VI)")
+        why("bearing", "practically no bearing movement at one end; bearing distress seen at inspection" if ev["bearing_ratio"] < 0.1
+            else f"bearing movement at one end {ev['bearing_ratio']:.2f} of the healthy value; bearing distress seen at inspection")
     corrosion_ndt = ev["hcp_min"] < -350 and ev["rho_min"] < 15
     if corrosion_ndt or g.get("G", 1) >= 4:
-        why("patch", f"HCP {ev['hcp_min']:.0f} mV with resistivity {ev['rho_min']:.0f} kOhm cm, spalling/rust (NDT + VI)")
-        why("coating", "carbonation front at or beyond cover in repaired zones" if ev["carb_margin"] > 0 else "low cover zones")
+        why("patch", f"HCP {ev['hcp_min']:.0f} mV with resistivity {ev['rho_min']:.0f} kΩcm; spalling and rust (NDT, inspection)")
+        why("coating", "carbonation front at or beyond the cover in the repaired zones" if ev["carb_margin"] > 0 else "zones with low cover")
         why("inhibitor", "wet zones with potentials in the uncertain band")
     if ev["p"].get("CO", 0) > 0.5 or (corrosion_ndt and ev.get("near_anchorage", False)):
-        why("pt_investigation", f"corrosion near tendon anchorages / ducts, ML p(CO) = {ev['p'].get('CO', 0):.2f}")
+        why("pt_investigation", f"corrosion near the tendon anchorages; probability of corrosion from the models {ev['p'].get('CO', 0):.2f}")
     girder_trend = [a for a in ev["trend_alarms"] if a.startswith(("VW", "level"))]
     if ev["p"].get("PL", 0) > 0.5 or ev["pl_est"] + 1.96 * ev["pl_sd"] > 5 or girder_trend:
-        why("liftoff", f"estimated extra prestress loss {ev['pl_est']:.1f} +- {1.96*ev['pl_sd']:.1f} %, p(PL) = {ev['p'].get('PL', 0):.2f}"
-            + (f"; trend alarms: {', '.join(girder_trend)}" if girder_trend else ""))
-        why("assessment", f"rare-combination soffit margin {ev['sls_margin']:+.2f} MPa with the estimated loss")
+        why("liftoff", f"estimated extra loss of prestress in G1 {ev['pl_est']:.1f} ± {1.96*ev['pl_sd']:.1f} %"
+            + (f"; trend alarms on {', '.join(girder_trend)}" if girder_trend else ""))
+        why("assessment", f"soffit margin against cracking only {ev['sls_margin']:+.2f} MPa (rare combination) with the estimated loss")
     if ev["sls_margin"] < 0:
         why("ept", "decompression / cracking limit exceeded with the estimated loss: restore precompression")
     if ev["crack_w"] > 0.2:
         why("crack_inject", f"crack width {ev['crack_w']:.2f} mm")
     if ev["novelty"] or ev["trend_alarms"]:
-        why("instrument", "monitoring alarm: " + ", ".join(ev["trend_alarms"]) if ev["trend_alarms"] else "novelty alarm on fused features")
+        why("instrument", "monitoring alarms on " + ", ".join(ev["trend_alarms"]) if ev["trend_alarms"] else "novelty alarm on the combined features")
     if ev["uls_ratio"] > 1.0:
         why("load_limit", f"M_Ed / M_Rd = {ev['uls_ratio']:.2f} > 1")
     if worst >= 4 or ev["novelty"]:
@@ -83,7 +83,7 @@ def decide(ev):
     if len(acts) == 0:
         why("routine", "no defect beyond CS2, no alarm")
     else:
-        why("reinspect", "close the loop: confirm the effect of the works")
+        why("reinspect", "to confirm the effect of the works and set a new baseline")
 
     worst_girder = g.get("G", 1)
     # an inspector's CS5 on a girder is reviewed against the structural check before the

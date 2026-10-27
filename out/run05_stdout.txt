@@ -9,17 +9,17 @@ GMM BIC {1: 1243, 2: 1183, 3: 1236, 4: 1206, 5: 1263} -> best k 2
 assessment: {'loss_used_pct': 4.43, 'sls_margin_design': np.float64(0.09), 'sls_margin_mean': np.float64(2.33), 'qp_soffit_mean': np.float64(4.62), 'uls_ratio': 0.76, 'shear_Vnet': 756.69, 'shear_VRdmax': 1333.4, 'shear_Vnet_design': 690.4, 'Asw_req': 634.02, 'cracked_now': False}
 BCI 37.5 groups {'G': 5, 'EJ': 4, 'BRG': 5, 'DR': 3, 'PC': 3, 'WC': 3, 'DS': 2, 'CB': 2, 'AB': 2, 'FP': 2, 'PR': 2}
 category: Serious - detailed investigation
-  - Clean and extend drainage spouts | within 1 month | blocked / short drainage spouts wetting the outer girder (VI)
-  - Replace strip-seal expansion joint | within 3 months | expansion joint seal leaking (VI)
-  - Jack deck and replace / reset bearings | within 6 months | practically no bearing movement at one end + bearing distress (VI)
-  - Concrete repair: remove carbonated / delaminated cover, treat bars, polymer-modified mortar | within 6 months | HCP -456 mV with resistivity 11 kOhm cm, spalling/rust (NDT + VI)
-  - Anti-carbonation coating on repaired and low-cover zones | after repair | low cover zones
+  - Clean and extend drainage spouts | within 1 month | blocked or short drain spouts wetting the outer girder (inspection)
+  - Replace strip-seal expansion joint | within 3 months | expansion joint seal leaking (inspection)
+  - Jack deck and replace / reset bearings | within 6 months | practically no bearing movement at one end; bearing distress seen at inspection
+  - Concrete repair: remove carbonated / delaminated cover, treat bars, polymer-modified mortar | within 6 months | HCP -456 mV with resistivity 11 kΩcm; spalling and rust (NDT, inspection)
+  - Anti-carbonation coating on repaired and low-cover zones | after repair | zones with low cover
   - Migrating corrosion inhibitor on wet, low-resistivity zones | with repair | wet zones with potentials in the uncertain band
-  - Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages | within 3 months | corrosion near tendon anchorages / ducts, ML p(CO) = 1.00
-  - Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder | within 6 months | estimated extra prestress loss 4.4 +- 3.2 %, p(PL) = 0.15; trend alarms: VW strain G1, level G1
-  - Detailed structural assessment with measured losses (SLS decompression, ULS, shear at the end zone) | within 3 months | rare-combination soffit margin +0.09 MPa with the estimated loss
+  - Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages | within 3 months | corrosion near the tendon anchorages; probability of corrosion from the models 1.00
+  - Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder | within 6 months | estimated extra loss of prestress in G1 4.4 ± 3.2 %; trend alarms on VW strain G1, level G1
+  - Detailed structural assessment with measured losses (SLS decompression, ULS, shear at the end zone) | within 3 months | soffit margin against cracking only +0.09 MPa (rare combination) with the estimated loss
   - Epoxy injection of cracks wider than 0.2 mm, sealing of finer cracks | within 6 months | crack width 0.45 mm
-  - Additional instrumentation: crack gauges, extra VW gauges at the end zone, bearing LVDTs on all girders | within 1 month | monitoring alarm: f1 residual, f2 residual, bearing B movement, bearing A movement, VW strain G1, level G1
+  - Additional instrumentation: crack gauges, extra VW gauges at the end zone, bearing LVDTs on all girders | within 1 month | monitoring alarms on f1 residual, f2 residual, bearing B movement, bearing A movement, VW strain G1, level G1
   - Special inspection by a bridge engineer (under-bridge unit, close visual of all girders) | within 2 weeks | serious defect or monitoring alarm
-  - Re-inspection and repeat monitoring campaign after the works | 6 months after works | close the loop: confirm the effect of the works
-[done in 25 s]
+  - Re-inspection and repeat monitoring campaign after the works | 6 months after works | to confirm the effect of the works and set a new baseline
+[done in 30 s]

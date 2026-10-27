@@ -11,6 +11,8 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ.setdefault(_v, "1")      # one BLAS thread per worker process
 from psc.perf import boost
 boost()
+import sys
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 import csv, json, pickle, time
 import numpy as np
 from multiprocessing import Pool
