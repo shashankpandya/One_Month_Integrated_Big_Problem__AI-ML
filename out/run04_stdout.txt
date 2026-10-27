@@ -1,0 +1,20 @@
+{'n': 3600, 'n_train': 2509, 'n_test': 1091, 'counts': {np.str_('BR'): 353, np.str_('CD'): 373, np.str_('CO'): 359, np.str_('CR'): 366, np.str_('H'): 902, np.str_('LS'): 362, np.str_('PL'): 364, np.str_('pair'): 521}}
+novelty Vibration only                         {'false alarm': 0.01, 'PL': 0.12, 'CD': 0.87, 'CR': 0.45, 'CO': 0.02, 'BR': 0.4, 'LS': 0.6}
+novelty Static + geometry + bearings           {'false alarm': 0.01, 'PL': 0.85, 'CD': 0.73, 'CR': 0.89, 'CO': 0.14, 'BR': 1.0, 'LS': 0.29}
+novelty Inspection + NDT                       {'false alarm': 0.02, 'PL': 0.33, 'CD': 0.92, 'CR': 0.95, 'CO': 1.0, 'BR': 0.85, 'LS': 0.98}
+novelty Continuous monitoring (no closure)     {'false alarm': 0.02, 'PL': 0.79, 'CD': 0.89, 'CR': 0.76, 'CO': 0.12, 'BR': 1.0, 'LS': 0.6}
+novelty All sources fused                      {'false alarm': 0.03, 'PL': 0.86, 'CD': 0.96, 'CR': 1.0, 'CO': 1.0, 'BR': 1.0, 'LS': 0.98}
+RF Vibration only                         macro-F1 0.324  AUC {'PL': 0.575, 'CD': 0.922, 'CR': 0.85, 'CO': 0.566, 'BR': 0.828, 'LS': 0.812}
+RF Static + geometry + bearings           macro-F1 0.493  AUC {'PL': 0.906, 'CD': 0.82, 'CR': 0.922, 'CO': 0.64, 'BR': 1.0, 'LS': 0.675}
+RF Inspection + NDT                       macro-F1 0.797  AUC {'PL': 0.726, 'CD': 0.974, 'CR': 0.966, 'CO': 1.0, 'BR': 0.974, 'LS': 0.986}
+RF Continuous monitoring (no closure)     macro-F1 0.546  AUC {'PL': 0.881, 'CD': 0.925, 'CR': 0.881, 'CO': 0.64, 'BR': 1.0, 'LS': 0.831}
+RF All sources fused                      macro-F1 0.897  AUC {'PL': 0.927, 'CD': 0.984, 'CR': 0.996, 'CO': 1.0, 'BR': 1.0, 'LS': 0.989}
+logistic fused AUC {'PL': 0.883, 'CD': 0.959, 'CR': 0.954, 'CO': 1.0, 'BR': 1.0, 'LS': 0.944}
+dominant-mechanism accuracy Vibration only: 0.472
+dominant-mechanism accuracy Static + geometry + bearings: 0.602
+dominant-mechanism accuracy Inspection + NDT: 0.834
+dominant-mechanism accuracy All sources fused: 0.905
+PL severity  GPR {'MAE': 2.57, 'RMSE': 3.85, 'R2': 0.83} 95% coverage 0.92 | RF {'MAE': 2.73, 'RMSE': 3.8, 'R2': 0.83} | levelling only {'MAE': 6.42, 'RMSE': 10.48, 'R2': -0.29}
+   GPR length scales: {'lev_min': np.float64(1.85), 'lev_mean': np.float64(2.03), 'vw_max': np.float64(0.72), 'vw_mean': np.float64(1.2), 'r_d_mean': np.float64(0.48), 'crack_flex': np.float64(0.89)}
+localisation accuracy 0.697 {'PL': 0.75, 'CD': 0.78, 'CR': 0.87, 'CO': 0.45, 'LS': 0.64}
+[done in 42 s]

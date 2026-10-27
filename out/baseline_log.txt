@@ -1,0 +1,18 @@
+identified modes (FDD): {0: (np.float64(3.73), 0.994), 1: (np.float64(3.926), 0.995), 2: (np.float64(8.794), 0.999), 4: (np.float64(14.53), 0.506), 5: (np.float64(15.241), 0.874), 6: (np.float64(16.953), 0.963), 7: (np.float64(18.196), 0.995)}
+== Commissioning (T = 27 degC, night) ==
+measured f : [3.73, 3.926, 8.794, 14.53]  design model f: [3.466, 3.562, 8.345, 13.168]
+measured d : [4.36, 5.54, 6.32, 6.34, 5.64, 4.41]  design model d: [4.99, 6.14, 6.9, 6.9, 6.14, 4.99]
+measured e : [60.8, 72.3, 66.6, 69.2, 72.2, 61.0]
+== Model updating ==
+E_scale = 1.055 +- 0.008, barrier = 0.360 +- 0.019, E_dyn = 1.245 +- 0.010
+(truth used to make the data: {'E_scale': 1.06, 'barrier': 0.35, 'E_dyn': 1.24})
+updated f: [3.731, 3.922, 8.793, 14.54]  d: [4.4, 5.56, 6.34, 6.34, 5.56, 4.4]
+MAC measured vs updated twin shapes: {0: 0.999, 1: 0.996, 2: 1.0, 4: 0.47, 5: 0.997, 6: 0.997, 7: 0.999}
+== Baseline year (730 records) ==
+f1: mean 3.7213 Hz, -0.149 %/degC, residual sd 7.01 mHz (night only 6.89 mHz)
+f2: mean 3.9126 Hz, -0.139 %/degC, residual sd 6.71 mHz (night only 6.87 mHz)
+f3: mean 8.7889 Hz, -0.141 %/degC, residual sd 14.37 mHz (night only 14.17 mHz)
+f4: mean 14.5099 Hz, -0.132 %/degC, residual sd 23.13 mHz (night only 22.71 mHz)
+temperature range 16.5 - 40.7 degC; f1 range 3.648 - 3.789 Hz
+bearing slopes A/B: 0.192 / 0.191 mm/degC
+baseline NDT: {'rebound': (42.04, 2.2), 'upv': (4.56, 0.07), 'cover': (53.1, 4.94), 'hcp': (-132.81, 30.27), 'resistivity': (50.17, 10.06), 'carbonation': (2.86, 1.56), 'chloride': (0.06, 0.02)}

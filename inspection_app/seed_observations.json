@@ -1,0 +1,335 @@
+[
+ {
+  "span": "S1",
+  "component": "G1",
+  "location": "Z5",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S1",
+  "component": "G6",
+  "location": "Z3",
+  "observation": "Honeycombing",
+  "size": "",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S1",
+  "component": "G6",
+  "location": "Z5",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z1",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z4",
+  "observation": "Cracking",
+  "size": "0.39 mm",
+  "cs": 5,
+  "note": "longitudinal, along bars / duct, rust in crack"
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z4",
+  "observation": "Spalling",
+  "size": "0.18 m2",
+  "cs": 3,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z4",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 3,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z5",
+  "observation": "Cracking",
+  "size": "0.45 mm",
+  "cs": 5,
+  "note": "longitudinal, along bars / duct, rust in crack"
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z5",
+  "observation": "Spalling",
+  "size": "0.05 m2",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z5",
+  "observation": "Corrosion staining",
+  "size": "",
+  "cs": 3,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G1",
+  "location": "Z5",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 3,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "G6",
+  "location": "Z1",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S3",
+  "component": "G1",
+  "location": "Z1",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 3,
+  "note": ""
+ },
+ {
+  "span": "S3",
+  "component": "G2",
+  "location": "Z1",
+  "observation": "Leakage",
+  "size": "damp patches / efflorescence",
+  "cs": 2,
+  "note": ""
+ },
+ {
+  "span": "S2",
+  "component": "EJ",
+  "location": "EJ-P1",
+  "observation": "Joint distress",
+  "size": "",
+  "cs": 3,
+  "note": "seal torn, debris packed in gap"
+ },
+ {
+  "span": "S2",
+  "component": "EJ",
+  "location": "EJ-P1",
+  "observation": "Leakage",
+  "size": "",
+  "cs": 3,
+  "note": "water and silt onto pier cap"
+ },
+ {
+  "span": "S2",
+  "component": "BRG",
+  "location": "G1-B",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 3,
+  "note": "hardened / restrained, debris around bearing"
+ },
+ {
+  "span": "S2",
+  "component": "BRG",
+  "location": "G2-B",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 4,
+  "note": "hardened / restrained, debris around bearing"
+ },
+ {
+  "span": "S2",
+  "component": "BRG",
+  "location": "G3-B",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 5,
+  "note": "hardened / restrained, debris around bearing"
+ },
+ {
+  "span": "S2",
+  "component": "BRG",
+  "location": "G4-B",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 4,
+  "note": "hardened / restrained, debris around bearing"
+ },
+ {
+  "span": "S2",
+  "component": "BRG",
+  "location": "G5-B",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 4,
+  "note": "hardened / restrained, debris around bearing"
+ },
+ {
+  "span": "S2",
+  "component": "BRG",
+  "location": "G6-B",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 4,
+  "note": "hardened / restrained, debris around bearing"
+ },
+ {
+  "span": "S2",
+  "component": "EJ",
+  "location": "EJ-P2",
+  "observation": "Joint distress",
+  "size": "",
+  "cs": 3,
+  "note": "seal torn, debris packed in gap"
+ },
+ {
+  "span": "S2",
+  "component": "EJ",
+  "location": "EJ-P2",
+  "observation": "Leakage",
+  "size": "",
+  "cs": 4,
+  "note": "water and silt onto pier cap"
+ },
+ {
+  "span": "S2",
+  "component": "DR",
+  "location": "U-6",
+  "observation": "Blocked drain",
+  "size": "",
+  "cs": 2,
+  "note": "spout too short, water runs on girder"
+ },
+ {
+  "span": "S2",
+  "component": "PC",
+  "location": "P2",
+  "observation": "Leakage",
+  "size": "",
+  "cs": 3,
+  "note": "silt and water stains below S2 end B bearings"
+ },
+ {
+  "span": "S2",
+  "component": "PC",
+  "location": "P2",
+  "observation": "Spalling",
+  "size": "0.15 m2",
+  "cs": 3,
+  "note": "pedestal edge spalled under G1-B"
+ },
+ {
+  "span": "S2",
+  "component": "DR",
+  "location": "U-6",
+  "observation": "Blocked drain",
+  "size": "",
+  "cs": 3,
+  "note": "spout 150 mm long, discharges on G1"
+ },
+ {
+  "span": "S2",
+  "component": "WC",
+  "location": "near EJ-P2",
+  "observation": "Surface deterioration",
+  "size": "",
+  "cs": 3,
+  "note": "ravelling and potholes 2 m either side of the joint"
+ },
+ {
+  "span": "S3",
+  "component": "BRG",
+  "location": "G1-A",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 3,
+  "note": "bulging, silt around bearing"
+ },
+ {
+  "span": "S3",
+  "component": "BRG",
+  "location": "G2-A",
+  "observation": "Bearing distress",
+  "size": "",
+  "cs": 3,
+  "note": "silt around bearing"
+ },
+ {
+  "span": "S1",
+  "component": "DS",
+  "location": "bay G2-G3",
+  "observation": "Efflorescence",
+  "size": "",
+  "cs": 2,
+  "note": "white deposits along a construction joint"
+ },
+ {
+  "span": "S1",
+  "component": "CB",
+  "location": "upstream",
+  "observation": "Cracking",
+  "size": "0.15 mm",
+  "cs": 2,
+  "note": "vertical shrinkage cracks at 3-4 m"
+ },
+ {
+  "span": "S1",
+  "component": "AB",
+  "location": "A1",
+  "observation": "Surface deterioration",
+  "size": "",
+  "cs": 2,
+  "note": "vegetation in bearing shelf drain hole"
+ },
+ {
+  "span": "S3",
+  "component": "FP",
+  "location": "downstream",
+  "observation": "Surface deterioration",
+  "size": "",
+  "cs": 2,
+  "note": "loose kerb cover slab"
+ },
+ {
+  "span": "S2",
+  "component": "PR",
+  "location": "P2",
+  "observation": "Leakage",
+  "size": "",
+  "cs": 2,
+  "note": "stains running down pier face"
+ },
+ {
+  "span": "S1",
+  "component": "PC",
+  "location": "P1",
+  "observation": "Cracking",
+  "size": "0.10 mm",
+  "cs": 2,
+  "note": "hairline vertical crack, not active"
+ }
+]

@@ -1,0 +1,38 @@
+span,component,location,observation,size,cs,note
+S1,G1,Z5,Leakage,damp patches / efflorescence,2,
+S1,G6,Z3,Honeycombing,,2,
+S1,G6,Z5,Leakage,damp patches / efflorescence,2,
+S2,G1,Z1,Leakage,damp patches / efflorescence,2,
+S2,G1,Z4,Cracking,0.39 mm,5,"longitudinal, along bars / duct, rust in crack"
+S2,G1,Z4,Spalling,0.18 m2,3,
+S2,G1,Z4,Leakage,damp patches / efflorescence,3,
+S2,G1,Z5,Cracking,0.45 mm,5,"longitudinal, along bars / duct, rust in crack"
+S2,G1,Z5,Spalling,0.05 m2,2,
+S2,G1,Z5,Corrosion staining,,3,
+S2,G1,Z5,Leakage,damp patches / efflorescence,3,
+S2,G6,Z1,Leakage,damp patches / efflorescence,2,
+S3,G1,Z1,Leakage,damp patches / efflorescence,3,
+S3,G2,Z1,Leakage,damp patches / efflorescence,2,
+S2,EJ,EJ-P1,Joint distress,,3,"seal torn, debris packed in gap"
+S2,EJ,EJ-P1,Leakage,,3,water and silt onto pier cap
+S2,BRG,G1-B,Bearing distress,,3,"hardened / restrained, debris around bearing"
+S2,BRG,G2-B,Bearing distress,,4,"hardened / restrained, debris around bearing"
+S2,BRG,G3-B,Bearing distress,,5,"hardened / restrained, debris around bearing"
+S2,BRG,G4-B,Bearing distress,,4,"hardened / restrained, debris around bearing"
+S2,BRG,G5-B,Bearing distress,,4,"hardened / restrained, debris around bearing"
+S2,BRG,G6-B,Bearing distress,,4,"hardened / restrained, debris around bearing"
+S2,EJ,EJ-P2,Joint distress,,3,"seal torn, debris packed in gap"
+S2,EJ,EJ-P2,Leakage,,4,water and silt onto pier cap
+S2,DR,U-6,Blocked drain,,2,"spout too short, water runs on girder"
+S2,PC,P2,Leakage,,3,silt and water stains below S2 end B bearings
+S2,PC,P2,Spalling,0.15 m2,3,pedestal edge spalled under G1-B
+S2,DR,U-6,Blocked drain,,3,"spout 150 mm long, discharges on G1"
+S2,WC,near EJ-P2,Surface deterioration,,3,ravelling and potholes 2 m either side of the joint
+S3,BRG,G1-A,Bearing distress,,3,"bulging, silt around bearing"
+S3,BRG,G2-A,Bearing distress,,3,silt around bearing
+S1,DS,bay G2-G3,Efflorescence,,2,white deposits along a construction joint
+S1,CB,upstream,Cracking,0.15 mm,2,vertical shrinkage cracks at 3-4 m
+S1,AB,A1,Surface deterioration,,2,vegetation in bearing shelf drain hole
+S3,FP,downstream,Surface deterioration,,2,loose kerb cover slab
+S2,PR,P2,Leakage,,2,stains running down pier face
+S1,PC,P1,Cracking,0.10 mm,2,"hairline vertical crack, not active"

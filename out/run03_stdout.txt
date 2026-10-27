@@ -1,0 +1,2 @@
+3600 campaigns, healthy 902, pairs 521, per mechanism {'PL': 535, 'CD': 542, 'CR': 553, 'CO': 541, 'BR': 521, 'LS': 527}
+[done in 395 s]

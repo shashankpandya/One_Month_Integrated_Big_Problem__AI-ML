@@ -1,0 +1,479 @@
+{
+ "trends": {
+  "f1 residual": {
+   "first_alarm_year": 12.5,
+   "limit": 1.0,
+   "slope_last3y_per_year": 0.02992764449922543
+  },
+  "f2 residual": {
+   "first_alarm_year": 13.166666666666666,
+   "limit": 1.0,
+   "slope_last3y_per_year": 0.038530224690687925
+  },
+  "bearing B movement": {
+   "first_alarm_year": 10.5,
+   "limit": 1.0,
+   "slope_last3y_per_year": -0.009337318048244135
+  },
+  "bearing A movement": {
+   "first_alarm_year": 10.583333333333334,
+   "limit": 1.0,
+   "slope_last3y_per_year": 0.003827771488539933
+  },
+  "VW strain G1": {
+   "first_alarm_year": 12.833333333333334,
+   "limit": 1.0,
+   "slope_last3y_per_year": 12.574644814631839
+  },
+  "level G1": {
+   "first_alarm_year": 12.083333333333334,
+   "limit": 1.0,
+   "slope_last3y_per_year": -1.1434282692088331
+  }
+ },
+ "onset": {
+  "joint": 9.0,
+  "bearing": 10.0,
+  "corrosion": 11.0
+ },
+ "campaign_raw": {
+  "T": 27.5,
+  "age": 18.0,
+  "f1": 3.7511008410081312,
+  "f2": 3.935076729916055,
+  "f3": 8.813040597272588,
+  "f4": 14.531555456795145,
+  "z1": 0.01761367470148318,
+  "mac1": 0.987985458038843,
+  "mac2": 0.9793505955739713,
+  "a_rms": 0.6311112000763117,
+  "a_max": 13.21204469902584,
+  "phi_G1": 1.085576723158786,
+  "phi_G6": 0.9259174625696585,
+  "d1": 4.384837076030614,
+  "e1": 59.34794776353747,
+  "d2": 5.567037527166024,
+  "e2": 67.62622175110367,
+  "d3": 6.378270056033821,
+  "e3": 71.52502575883507,
+  "d4": 6.395136242918021,
+  "e4": 69.20159894251054,
+  "d5": 5.626509172549782,
+  "e5": 70.94625856029772,
+  "d6": 4.432992352898965,
+  "e6": 62.98059828945496,
+  "lev_G1": -2.371962737237532,
+  "lev_C": 3.338753251723621,
+  "lev_G6": 4.002914468616845,
+  "vw_G1": 72.40901123873635,
+  "vw_G3": -5.774477538463581,
+  "vw_G4": -7.594875069636711,
+  "vw_G6": -8.179169175912067,
+  "brg_A": 0.3170337467511601,
+  "brg_B": -0.016472313321393678,
+  "R_min": 39.4591970632371,
+  "R_med": 44.07903989635473,
+  "UPV_min": 4.370888684636816,
+  "UPV_med": 4.570497856784364,
+  "HCP_min": -455.93039314883555,
+  "rho_min": 11.054987388495803,
+  "cover_min": 30.84507334199054,
+  "carb_margin": -16.834734326857713,
+  "crack_w": 0.45,
+  "crack_flex": 0.0,
+  "crack_long": 0.45,
+  "spall_area": 0.22999999999999998,
+  "n_rust": 1.0,
+  "cs_girder": 5.0,
+  "cs_bearing": 5.0,
+  "joint_leak": 1.0
+ },
+ "campaign_features": {
+  "r_f1": 0.6573729460884324,
+  "r_f2": 0.45801797647735915,
+  "r_f3": 0.20506876581260525,
+  "r_f4": 0.06118767852313211,
+  "mac1": 0.987985458038843,
+  "mac2": 0.9793505955739713,
+  "phi_asym": 0.1596592605891276,
+  "z1": 0.01761367470148318,
+  "r_d_mean": 0.3969918920806421,
+  "r_d_asym": 0.09315881941191151,
+  "r_d_max": 0.830925365027241,
+  "r_e_mean": -0.07646961132862155,
+  "r_e_max": 7.325399845979334,
+  "lev_mean": 1.6565683277009782,
+  "lev_asym": -6.374877205854377,
+  "lev_min": -2.371962737237532,
+  "vw_mean": 12.715122363680997,
+  "vw_max": 72.40901123873635,
+  "brg_min": -0.08581060245131794,
+  "brg_asym": 0.3335060600725538,
+  "UPV_min": 4.370888684636816,
+  "R_min": 39.4591970632371,
+  "HCP_min": -455.93039314883555,
+  "rho_min": 11.054987388495803,
+  "cover_min": 30.84507334199054,
+  "carb_margin": -16.834734326857713,
+  "crack_w": 0.45,
+  "crack_flex": 0.0,
+  "crack_long": 0.45,
+  "spall_area": 0.22999999999999998,
+  "n_rust": 1.0,
+  "cs_girder": 5.0,
+  "cs_bearing": 5.0,
+  "joint_leak": 1.0
+ },
+ "campaign_girders": {
+  "d": [
+   0.39434343606438915,
+   0.4305335506990815,
+   0.830925365027241,
+   0.703425966715173,
+   -0.2784615826745096,
+   0.30118461665247764
+  ],
+  "e": [
+   -2.448244473299596,
+   -6.605283389330225,
+   7.325399845979334,
+   -0.11681909717079009,
+   -1.8107847176940481,
+   3.196914163543596
+  ]
+ },
+ "ml": {
+  "novelty_score": 34516.91671798888,
+  "novelty_threshold": 47.59712538902483,
+  "novelty": true,
+  "p_fused": {
+   "PL": 0.15442980222391986,
+   "CD": 0.05922260418923551,
+   "CR": 0.0305,
+   "CO": 0.9966666666666666,
+   "BR": 0.9456666666666667,
+   "LS": 0.04766666666666666
+  },
+  "p_vibration": {
+   "PL": 0.18202923083349914,
+   "CD": 0.07116757333434634,
+   "CR": 0.05129069292655623,
+   "CO": 0.108949650100849,
+   "BR": 0.8422023809523809,
+   "LS": 0.006663170074073328
+  },
+  "pl_gpr_mean": 9.48180778706901,
+  "pl_gpr_sd": 3.1967538984716115,
+  "pl_G1_levelling": 2.2807334011899343,
+  "pl_G1_vw": 5.839436390220674,
+  "pl_G1_combined": 4.434433688195108,
+  "pl_G1_sd": 1.6336764784278155,
+  "loc_proba": [
+   0.55029570731905,
+   0.15117598284919234,
+   0.07993365176246932,
+   0.06911666975224265,
+   0.04870380741669385,
+   0.10077418090035183
+  ]
+ },
+ "ndt_clusters": {
+  "bic": {
+   "1": 1242.54697980713,
+   "2": 1182.8304756565367,
+   "3": 1236.392767330906,
+   "4": 1206.4127194097555,
+   "5": 1262.8631939695601
+  },
+  "k_best": 2,
+  "k_used": 2,
+  "clusters": [
+   {
+    "n": 83,
+    "upv": 4.5590246980959925,
+    "rebound": 43.87031410292538,
+    "hcp": -127.2332445401307,
+    "rho": 50.73897927570927,
+    "margin": 39.2157496253225,
+    "members": [
+     "S1-G1-Z1",
+     "S1-G1-Z2",
+     "S1-G1-Z3",
+     "S1-G1-Z4",
+     "S1-G2-Z1",
+     "S1-G2-Z2",
+     "S1-G2-Z3",
+     "S1-G2-Z4",
+     "S1-G2-Z5",
+     "S1-G3-Z1",
+     "S1-G3-Z2",
+     "S1-G3-Z3",
+     "S1-G3-Z4",
+     "S1-G3-Z5",
+     "S1-G4-Z1",
+     "S1-G4-Z2",
+     "S1-G4-Z3",
+     "S1-G4-Z4",
+     "S1-G4-Z5",
+     "S1-G5-Z1",
+     "S1-G5-Z2",
+     "S1-G5-Z3",
+     "S1-G5-Z4",
+     "S1-G5-Z5",
+     "S1-G6-Z1",
+     "S1-G6-Z2",
+     "S1-G6-Z3",
+     "S1-G6-Z4",
+     "S2-G1-Z2",
+     "S2-G1-Z3",
+     "S2-G2-Z1",
+     "S2-G2-Z2",
+     "S2-G2-Z3",
+     "S2-G2-Z4",
+     "S2-G2-Z5",
+     "S2-G3-Z1",
+     "S2-G3-Z2",
+     "S2-G3-Z3",
+     "S2-G3-Z4",
+     "S2-G3-Z5",
+     "S2-G4-Z1",
+     "S2-G4-Z2",
+     "S2-G4-Z3",
+     "S2-G4-Z4",
+     "S2-G4-Z5",
+     "S2-G5-Z1",
+     "S2-G5-Z2",
+     "S2-G5-Z3",
+     "S2-G5-Z4",
+     "S2-G5-Z5",
+     "S2-G6-Z2",
+     "S2-G6-Z3",
+     "S2-G6-Z4",
+     "S2-G6-Z5",
+     "S3-G1-Z2",
+     "S3-G1-Z3",
+     "S3-G1-Z4",
+     "S3-G1-Z5",
+     "S3-G2-Z1",
+     "S3-G2-Z2",
+     "S3-G2-Z3",
+     "S3-G2-Z4",
+     "S3-G2-Z5",
+     "S3-G3-Z1",
+     "S3-G3-Z2",
+     "S3-G3-Z3",
+     "S3-G3-Z4",
+     "S3-G3-Z5",
+     "S3-G4-Z1",
+     "S3-G4-Z2",
+     "S3-G4-Z3",
+     "S3-G4-Z4",
+     "S3-G4-Z5",
+     "S3-G5-Z1",
+     "S3-G5-Z2",
+     "S3-G5-Z3",
+     "S3-G5-Z4",
+     "S3-G5-Z5",
+     "S3-G6-Z1",
+     "S3-G6-Z2",
+     "S3-G6-Z3",
+     "S3-G6-Z4",
+     "S3-G6-Z5"
+    ],
+    "name": "sound / dry"
+   },
+   {
+    "n": 7,
+    "upv": 4.568028212402768,
+    "rebound": 41.58111543031576,
+    "hcp": -297.8162988922764,
+    "rho": 14.82752652303418,
+    "margin": 33.78082724110161,
+    "members": [
+     "S1-G1-Z5",
+     "S1-G6-Z5",
+     "S2-G1-Z1",
+     "S2-G1-Z4",
+     "S2-G1-Z5",
+     "S2-G6-Z1",
+     "S3-G1-Z1"
+    ],
+    "name": "wet / corrosion risk"
+   }
+  ],
+  "kmeans_agreement": 0.9777777777777777
+ },
+ "assessment": {
+  "loss_used_pct": 4.434433688195108,
+  "sls_margin_design": 0.09267261129984572,
+  "sls_margin_mean": 2.3301221873587723,
+  "qp_soffit_mean": 4.622350567553593,
+  "uls_ratio": 0.7557446109414059,
+  "shear_Vnet": 756.6931962526501,
+  "shear_VRdmax": 1333.4026174879268,
+  "shear_Vnet_design": 690.4022670731559,
+  "Asw_req": 634.023443126082,
+  "cracked_now": false
+ },
+ "decision": {
+  "category": "Serious - detailed investigation",
+  "actions": [
+   [
+    "Clean and extend drainage spouts",
+    "within 1 month",
+    "blocked / short drainage spouts wetting the outer girder (VI)",
+    "spouts discharge clear of girder soffit, add drip groove"
+   ],
+   [
+    "Replace strip-seal expansion joint",
+    "within 3 months",
+    "expansion joint seal leaking (VI)",
+    "stops water and silt reaching bearings, anchorages and pier cap"
+   ],
+   [
+    "Jack deck and replace / reset bearings",
+    "within 6 months",
+    "practically no bearing movement at one end + bearing distress (VI)",
+    "jacking points on end diaphragm (designed for this), lift <= 10 mm"
+   ],
+   [
+    "Concrete repair: remove carbonated / delaminated cover, treat bars, polymer-modified mortar",
+    "within 6 months",
+    "HCP -456 mV with resistivity 11 kOhm cm, spalling/rust (NDT + VI)",
+    "after marking out by hammer tapping and half-cell map"
+   ],
+   [
+    "Anti-carbonation coating on repaired and low-cover zones",
+    "after repair",
+    "low cover zones",
+    "extends time to re-initiation"
+   ],
+   [
+    "Migrating corrosion inhibitor on wet, low-resistivity zones",
+    "with repair",
+    "wet zones with potentials in the uncertain band",
+    "where HCP is in the uncertain band"
+   ],
+   [
+    "Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages",
+    "within 3 months",
+    "corrosion near tendon anchorages / ducts, ML p(CO) = 1.00",
+    "only direct way to confirm strand corrosion inside the duct"
+   ],
+   [
+    "Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder",
+    "within 6 months",
+    "estimated extra prestress loss 4.4 +- 3.2 %, p(PL) = 0.15; trend alarms: VW strain G1, level G1",
+    "measures the remaining force rather than inferring it"
+   ],
+   [
+    "Detailed structural assessment with measured losses (SLS decompression, ULS, shear at the end zone)",
+    "within 3 months",
+    "rare-combination soffit margin +0.09 MPa with the estimated loss",
+    "decides whether strengthening is needed"
+   ],
+   [
+    "Epoxy injection of cracks wider than 0.2 mm, sealing of finer cracks",
+    "within 6 months",
+    "crack width 0.45 mm",
+    "after the cause is removed"
+   ],
+   [
+    "Additional instrumentation: crack gauges, extra VW gauges at the end zone, bearing LVDTs on all girders",
+    "within 1 month",
+    "monitoring alarm: f1 residual, f2 residual, bearing B movement, bearing A movement, VW strain G1, level G1",
+    "to watch the suspect area until the repair"
+   ],
+   [
+    "Special inspection by a bridge engineer (under-bridge unit, close visual of all girders)",
+    "within 2 weeks",
+    "serious defect or monitoring alarm",
+    ""
+   ],
+   [
+    "Re-inspection and repeat monitoring campaign after the works",
+    "6 months after works",
+    "close the loop: confirm the effect of the works",
+    "new baseline for the repaired bridge"
+   ]
+  ],
+  "intervals": {
+   "routine": "monthly until works",
+   "principal": "after works, then 1 year",
+   "monitoring": "continuous, weekly review"
+  },
+  "bci": 37.5,
+  "groups": {
+   "G": 5,
+   "EJ": 4,
+   "BRG": 5,
+   "DR": 3,
+   "PC": 3,
+   "WC": 3,
+   "DS": 2,
+   "CB": 2,
+   "AB": 2,
+   "FP": 2,
+   "PR": 2
+  }
+ },
+ "truth": [
+  {
+   "type": "BR",
+   "ends": "both",
+   "kh_mult": [
+    [
+     3.4,
+     100.0
+    ],
+    [
+     3.4,
+     100.0
+    ],
+    [
+     3.4,
+     100.0
+    ],
+    [
+     3.4,
+     100.0
+    ],
+    [
+     3.4,
+     100.0
+    ],
+    [
+     3.4,
+     100.0
+    ]
+   ],
+   "severity": 2.0
+  },
+  {
+   "type": "CO",
+   "girder": 0,
+   "x0": 28.5,
+   "x1": 33.0,
+   "loss": 0.084,
+   "d_spall": 0.021,
+   "severity": 0.084
+  },
+  {
+   "type": "PL",
+   "girders": [
+    0
+   ],
+   "loss": 0.063,
+   "eta": [
+    0.937,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "severity": 0.063,
+   "crack_w": 0.0
+  }
+ ]
+}

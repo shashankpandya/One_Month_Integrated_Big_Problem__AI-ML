@@ -1,0 +1,137 @@
+== Configuration ==
+span 33.0 m, girder length 33.9 m, deck 16.0 m, 6 girders @ 2.7 m
+girder lines y = [-6.75, -4.05, -1.35, 1.35, 4.05, 6.75]
+option study (Courbon, preliminary):
+  n=4 s=4.00 slab=0.275 k_outer=0.368 M_LL=3618 girder=82.9 t  Pe=9671 kN strands/girder=63.5 total=254  concrete=279 m3
+  n=5 s=3.25 slab=0.250 k_outer=0.297 M_LL=2918 girder=80.9 t  Pe=8041 kN strands/girder=52.8 total=264  concrete=294 m3
+  n=6 s=2.70 slab=0.225 k_outer=0.250 M_LL=2457 girder=77.1 t  Pe=6783 kN strands/girder=44.5 total=267  concrete=304 m3
+precast A=0.8550 yb=0.9120 I=0.3272 Zb=0.3587 Zt=0.3685
+composite inner b=2.70 A=1.4446 yb=1.3204 I=0.6790 Zb=0.5142
+composite outer b=2.60 A=1.4228 yb=1.3113 I=0.6711
+
+== Dead load (non-composite, per girder) ==
+G1: Mg=2930 Ms(slab+CG)=2097 kNm  Vg=378 Vs=248 kN
+G2: Mg=2930 Ms(slab+CG)=2281 kNm  Vg=378 Vs=264 kN
+G3: Mg=2930 Ms(slab+CG)=2281 kNm  Vg=378 Vs=264 kN
+
+== Composite stage (grillage) ==
+G1: M_edge=628 M_wc=420 M_fpL=292 M_fpR=-94 M_LL=2426
+G2: M_edge=716 M_wc=400 M_fpL=273 M_fpR=-22 M_LL=2147
+G3: M_edge=667 M_wc=413 M_fpL=156 M_fpR=55 M_LL=1887
+  M_G1 ('70RW + A', [('70R wheeled', np.float64(-2.9)), ('Class A', np.float64(0.85))], {'70RW + A': np.float64(2426.1), '70RT + A': np.float64(2038.7), '3 x A': np.float64(1898.8), '2 x A': np.float64(2056.2), '70RW': np.float64(2316.0), '70RT': np.float64(1705.3), '1 x A': np.float64(1375.0)})
+  R_G1 200.66181656361226
+  w_G1 0.010097940073878198
+  M_G2 ('70RW + A', [('Class A', np.float64(-4.2)), ('70R wheeled', np.float64(-0.45))], {'70RW + A': np.float64(2146.7), '70RT + A': np.float64(1810.5), '3 x A': np.float64(1806.0), '2 x A': np.float64(1629.9), '70RW': np.float64(1663.6), '70RT': np.float64(1409.5), '1 x A': np.float64(876.3)})
+  R_G2 369.96627277117585
+  w_G2 0.010033513510419974
+  M_G3 ('70RW + A', [('Class A', np.float64(-4.2)), ('70R wheeled', np.float64(2.3))], {'70RW + A': np.float64(1887.2), '70RT + A': np.float64(1673.0), '3 x A': np.float64(1749.3), '2 x A': np.float64(1424.5), '70RW': np.float64(1395.5), '70RT': np.float64(1191.2), '1 x A': np.float64(760.3)})
+  R_G3 419.29523843721927
+  w_G3 0.009394709256877154
+Courbon 70RW+A mid-span LL moments: [2457.0, 2130.0, 1803.0, 1476.0, 1149.0, 822.0]
+Grillage  (worst of all cases)  : [2426.0, 2147.0, 1887.0, 1887.0, 2147.0, 2426.0]
+
+== Prestress ==
+C1: Pj=2344  at mid: friction+slip 2164, ES 57, P0 2107 kN; set length 16.95 m; angle to mid 0.264 rad
+C2: Pj=2344  at mid: friction+slip 2142, ES 191, P0 1951 kN; set length 11.25 m; angle to mid 0.330 rad
+C3: Pj=2344  at mid: friction+slip 2220, ES 122, P0 2098 kN; set length 16.47 m; angle to mid 0.120 rad
+C4: Pj=2344  at mid: friction+slip 2210, ES 0, P0 2210 kN; set length 15.83 m; angle to mid 0.146 rad
+QP stress at tendon level (mid, G1) = 10.83 MPa
+C1: phi=1.63 ecs=250e-6 relax=79.6 MPa dsig=170.1 MPa dP=286 kN  h0=281 mm
+C2: phi=1.99 ecs=283e-6 relax=47.5 MPa dsig=168.0 MPa dP=282 kN  h0=281 mm
+C3: phi=1.99 ecs=283e-6 relax=77.6 MPa dsig=186.7 MPa dP=314 kN  h0=281 mm
+C4: phi=1.63 ecs=250e-6 relax=104.3 MPa dsig=185.8 MPa dP=312 kN  h0=281 mm
+Totals at mid-span: Pj=9374  after friction+slip=8736  P0=8366  Pe=7172 kN
+  immediate loss 10.8 %, long-term 12.7 %, total 23.5 %
+
+== Stage stresses (compression +, MPa) ==
+temp_pos: bottom +1.76 top girder -1.23 top slab +4.33
+temp_rev: bottom -2.51 top girder +0.95 top slab -2.41
+diff_shr: bottom -0.39 top girder -0.01 top slab -0.33
+-- G1 mid-span: M Mg=2930, Ms=2097, Medge=628, Mwc=420, Mll=2719
+   I transfer (stage-1 cables, 10 d)      top  +3.72  bot  +6.35
+   II all cables stressed (28 d)          top  +0.92  bot +18.42
+   III deck slab cast (60 d)              top  +6.88  bot +11.51
+   V rare, inf                            top +11.38  bot  -2.24  slab  +6.48
+   V rare, sup                            top +10.14  bot  +2.43  slab  +6.48
+   V frequent, inf                        top +10.79  bot  -0.66  slab  +5.35
+   V frequent, sup                        top  +9.55  bot  +4.01  slab  +5.35
+   V quasi, inf                           top  +9.31  bot  +3.32  slab  +3.24
+   V quasi, sup                           top  +8.07  bot  +7.99  slab  +3.24
+   IV open to traffic (90 d, rare)        top  +9.68  bot  +3.91  slab  +3.89
+-- G2 mid-span: M Mg=2930, Ms=2281, Medge=716, Mwc=400, Mll=2419
+   I transfer (stage-1 cables, 10 d)      top  +3.72  bot  +6.35
+   II all cables stressed (28 d)          top  +0.92  bot +18.42
+   III deck slab cast (60 d)              top  +7.38  bot +10.99
+   V rare, inf                            top +11.64  bot  -2.27  slab  +6.16
+   V rare, sup                            top +10.40  bot  +2.40  slab  +6.16
+   V frequent, inf                        top +11.11  bot  -0.85  slab  +5.11
+   V frequent, sup                        top  +9.88  bot  +3.83  slab  +5.11
+   V quasi, inf                           top  +9.83  bot  +2.68  slab  +3.29
+   V quasi, sup                           top  +8.59  bot  +7.36  slab  +3.29
+   IV open to traffic (90 d, rare)        top  +9.94  bot  +3.88  slab  +3.56
+-- G3 mid-span: M Mg=2930, Ms=2281, Medge=667, Mwc=413, Mll=2098
+   I transfer (stage-1 cables, 10 d)      top  +3.72  bot  +6.35
+   II all cables stressed (28 d)          top  +0.92  bot +18.42
+   III deck slab cast (60 d)              top  +7.38  bot +10.99
+   V rare, inf                            top +11.38  bot  -1.58  slab  +5.80
+   V rare, sup                            top +10.15  bot  +3.09  slab  +5.80
+   V frequent, inf                        top +10.92  bot  -0.31  slab  +4.84
+   V frequent, sup                        top  +9.68  bot  +4.36  slab  +4.84
+   V quasi, inf                           top  +9.81  bot  +2.75  slab  +3.25
+   V quasi, sup                           top  +8.57  bot  +7.42  slab  +3.25
+   IV open to traffic (90 d, rare)        top  +9.69  bot  +4.57  slab  +3.20
+-- G1 at L/4 and near support:
+   x= 8.25 I transfer (stage-1 cables, 10 d)  top  +3.22 bot  +6.79
+   x= 8.25 II all cables stressed (28 d)      top  +2.05 bot +17.12
+   x= 8.25 III deck slab cast (60 d)          top  +6.38 bot +11.87
+   x= 8.25 V rare, inf                        top  +9.54 bot  +0.83
+   x= 8.25 V rare, sup                        top  +8.85 bot  +4.90
+   x= 8.25 V frequent, inf                    top  +9.14 bot  +1.91
+   x= 2.75 I transfer (stage-1 cables, 10 d)  top  +3.56 bot  +6.13
+   x= 2.75 II all cables stressed (28 d)      top  +5.30 bot +13.42
+   x= 2.75 III deck slab cast (60 d)          top  +6.85 bot +11.02
+   x= 2.75 V rare, inf                        top  +7.67 bot  +4.38
+   x= 2.75 V rare, sup                        top  +8.16 bot  +7.16
+   x= 2.75 V frequent, inf                    top  +7.46 bot  +4.93
+   x= 1.38 I transfer (stage-1 cables, 10 d)  top  +2.39 bot  +4.05
+   x= 1.38 II all cables stressed (28 d)      top  +3.98 bot  +8.58
+   x= 1.38 III deck slab cast (60 d)          top  +4.61 bot  +7.45
+   x= 1.38 V rare, inf                        top  +5.09 bot  +3.15
+   x= 1.38 V rare, sup                        top  +5.60 bot  +4.90
+   x= 1.38 V frequent, inf                    top  +4.93 bot  +3.53
+limits: {'transfer1': 17.28, 'transfer2': 21.6, 'rare_g': 21.6, 'rare_s': 19.2, 'qp_g': 16.2, 'qp_s': 14.4, 'fctm': 3.3}
+governing: {'transfer1_max_comp': np.float64(6.79), 'transfer1_min': np.float64(2.39), 'transfer2_max_comp': np.float64(18.42), 'transfer2_min_top': np.float64(0.92), 'deck_min_top': np.float64(4.61), 'rare_min_bot': np.float64(-2.27), 'frequent_min_bot': np.float64(-0.85), 'qp_min_bot': np.float64(2.68), 'rare_max_top_girder': np.float64(10.4), 'rare_max_slab': np.float64(6.48), 'qp_max_bot': np.float64(8.76), 'initial_service_max_top': np.float64(9.94)}
+
+== ULS flexure (mid-span) ==
+G1: MEd=12446 MRd=16468 kNm  ratio=0.76  x=252 mm (x/d=0.135) fp=1391 MPa eps_p=27.88e-3
+G2: MEd=12329 MRd=16503 kNm  ratio=0.75  x=242 mm (x/d=0.130) fp=1391 MPa eps_p=28.87e-3
+G3: MEd=11805 MRd=16503 kNm  ratio=0.72  x=242 mm (x/d=0.130) fp=1391 MPa eps_p=28.87e-3
+
+== Shear ==
+G1 x=1.375: VEd=1333 Vp(0.9)=661 VRdc=2619 VRdmax=4089 Asw/s=586 mm2/m (min 586) bw_nom=0.606
+G1 x=2.750: VEd=1222 Vp(0.9)=532 VRdc=906 VRdmax=1333 Asw/s=578 mm2/m (min 183) bw_nom=0.190
+G2 x=1.375: VEd=1561 Vp(0.9)=661 VRdc=2603 VRdmax=4081 Asw/s=753 mm2/m (min 586) bw_nom=0.606
+G2 x=2.750: VEd=1417 Vp(0.9)=532 VRdc=901 VRdmax=1329 Asw/s=742 mm2/m (min 183) bw_nom=0.190
+G3 x=1.375: VEd=1605 Vp(0.9)=661 VRdc=2603 VRdmax=4081 Asw/s=791 mm2/m (min 586) bw_nom=0.606
+G3 x=2.750: VEd=1452 Vp(0.9)=532 VRdc=901 VRdmax=1329 Asw/s=771 mm2/m (min 183) bw_nom=0.190
+
+== Deflection and camber ==
+LL deflection mid (mm): {'G1': np.float64(11.8), 'G2': np.float64(11.2), 'G3': np.float64(10.2)} limit L/800 = 41.2
+camber at transfer (all cables, self weight) = 36.6 mm up
+after deck casting = 11.2 mm up;  Pe-only camber (elastic) = 57.0 mm; phi = 1.81
+
+== Bearings ==
+G1: Nmax=1097 Nmin=837 kN v_x=14.0 mm  S=9.0 eps_c=1.10 eps_q=0.20 eps_a=0.42 total=1.71 sigma_min=4.4 MPa
+G2: Nmax=1208 Nmin=816 kN v_x=14.0 mm  S=9.0 eps_c=1.21 eps_q=0.20 eps_a=0.42 total=1.83 sigma_min=4.3 MPa
+G3: Nmax=1222 Nmin=794 kN v_x=14.0 mm  S=9.0 eps_c=1.22 eps_q=0.20 eps_a=0.42 total=1.84 sigma_min=4.2 MPa
+bearing shear movement per degC (healthy, both ends elastomeric): 0.192 mm/degC
+
+== Modal (design model, Edyn = 1.2 Ecm) ==
+  mode 1: 3.475 Hz  bending (long. 1)
+  mode 2: 3.571 Hz  torsion (long. 1)
+  mode 3: 8.366 Hz  transverse-2 (long. 1)
+  mode 4: 13.178 Hz  torsion (long. 2)
+  mode 5: 13.199 Hz  bending (long. 2)
+  mode 6: 14.574 Hz  transverse-2 (long. 2)
+  mode 7: 16.170 Hz  transverse-3 (long. 2)
+  mode 8: 17.321 Hz  transverse-3 (long. 1)

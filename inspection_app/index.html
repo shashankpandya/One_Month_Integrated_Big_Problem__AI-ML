@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B33 Visual Inspection</title>
+<style>
+:root {
+  --bg: #f6f5f2; --panel: #ffffff; --ink: #1d1d1b; --ink2: #55544f; --muted: #8a8984; --line: #dddcd6;
+  --accent: #1c5cab; --accent-soft: #e6eef9;
+  --cs1: #0ca30c; --cs2: #7cbf3a; --cs3: #fab219; --cs4: #ec835a; --cs5: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #201f1e; --ink: #ecebe7; --ink2: #c3c2b7; --muted: #8f8e88; --line: #3a3936;
+    --accent: #6da7ec; --accent-soft: #1d2b3d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --panel: #201f1e; --ink: #ecebe7; --ink2: #c3c2b7; --muted: #8f8e88; --line: #3a3936;
+  --accent: #6da7ec; --accent-soft: #1d2b3d;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.45 "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--panel); }
+header h1 { font-size: 17px; margin: 0; }
+header .sub { color: var(--ink2); font-size: 13px; }
+header .right { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+main { display: grid; grid-template-columns: 360px 1fr; gap: 14px; padding: 14px 16px; max-width: 1400px; margin: 0 auto; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; min-width: 0; }
+h2 { font-size: 14px; margin: 0 0 8px; }
+label { display: block; font-size: 12px; color: var(--ink2); margin: 8px 0 3px; }
+select, input, textarea { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); font: inherit; }
+textarea { min-height: 54px; resize: vertical; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+button { padding: 6px 11px; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); color: var(--ink); font: inherit; cursor: pointer; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:hover { border-color: var(--accent); }
+.path { font-size: 12px; color: var(--ink2); background: var(--accent-soft); padding: 5px 8px; border-radius: 4px; margin-top: 8px; overflow-wrap: anywhere; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.cs { display: inline-block; min-width: 26px; padding: 1px 6px; border-radius: 10px; color: #111; font-weight: 600; text-align: center; font-size: 12px; }
+.cs1 { background: var(--cs1); color: #fff; } .cs2 { background: var(--cs2); } .cs3 { background: var(--cs3); } .cs4 { background: var(--cs4); } .cs5 { background: var(--cs5); color: #fff; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 5px 7px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--ink2); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.filters select, .filters input { width: auto; min-width: 120px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+.map { display: grid; grid-template-columns: 42px repeat(5, 1fr); gap: 3px; font-size: 11px; }
+.map div { padding: 6px 2px; text-align: center; border-radius: 3px; }
+.map .h { color: var(--ink2); background: none; }
+.map .c0 { background: var(--bg); border: 1px dashed var(--line); color: var(--muted); }
+.bci { font-size: 30px; font-weight: 700; }
+.small { font-size: 12px; color: var(--ink2); }
+img.thumb { max-width: 64px; max-height: 48px; border-radius: 3px; }
+.legend span { margin-right: 8px; }
+@media print {
+  header .right, #formPanel, .filters, button { display: none !important; }
+  main { display: block; } section { border: none; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Bridge B33 - visual inspection</h1>
+  <span class="sub">3 x 33 m PSC I-girder spans &middot; Bridge &rarr; Span &rarr; Component &rarr; Location &rarr; Observation</span>
+  <div class="right">
+    <button id="btnSeed" title="Load the year-18 detailed inspection used in the report">Load year-18 inspection</button>
+    <button id="btnCsv">Export CSV</button>
+    <button id="btnJson">Export JSON</button>
+    <label style="margin:0"><input type="file" id="fileJson" accept=".json" style="display:none"><span class="btnlike"><button type="button" id="btnImport">Import JSON</button></span></label>
+    <button id="btnPrint">Print</button>
+    <button id="btnClear">Clear all</button>
+  </div>
+</header>
+<main>
+  <section id="formPanel">
+    <h2>New observation</h2>
+    <div class="row">
+      <div><label for="span">Span</label><select id="span"></select></div>
+      <div><label for="comp">Component</label><select id="comp"></select></div>
+    </div>
+    <label for="loc">Location</label><select id="loc"></select>
+    <div class="path" id="path"></div>
+    <label for="obs">Observation</label><select id="obs"></select>
+    <div class="row">
+      <div><label for="size" id="sizeLabel">Size</label><input id="size" placeholder="e.g. 0.20"></div>
+      <div><label for="extent">Extent</label><select id="extent"><option>local</option><option>&lt; 10 % of element</option><option>10 - 30 %</option><option>&gt; 30 %</option></select></div>
+    </div>
+    <label for="cs">Condition state</label>
+    <select id="cs"></select>
+    <div class="hint" id="csHint"></div>
+    <label for="note">Notes (cause, activity, access)</label><textarea id="note"></textarea>
+    <div class="row">
+      <div><label for="insp">Inspector</label><input id="insp" placeholder="name"></div>
+      <div><label for="date">Date</label><input id="date" type="date"></div>
+    </div>
+    <label for="photo">Photo</label><input id="photo" type="file" accept="image/*" capture="environment">
+    <div style="margin-top:10px; display:flex; gap:8px"><button class="primary" id="btnAdd">Add observation</button><button id="btnReset">Reset</button></div>
+    <div class="hint" id="msg"></div>
+    <h2 style="margin-top:16px">Condition states</h2>
+    <div class="small" id="csTable"></div>
+  </section>
+
+  <div style="display:grid; gap:14px; min-width:0">
+    <div class="grid2">
+      <section>
+        <h2>Bridge condition index</h2>
+        <div class="bci" id="bci">-</div>
+        <div class="small" id="bciNote">weighted over component groups, 100 = all CS1</div>
+        <div class="tablewrap" style="margin-top:8px"><table id="groupTable"></table></div>
+      </section>
+      <section>
+        <h2>Girders, worst condition state per zone</h2>
+        <div class="filters"><select id="mapSpan"></select></div>
+        <div class="map" id="map"></div>
+        <div class="small legend" style="margin-top:8px">
+          <span><span class="cs cs1">1</span> good</span><span><span class="cs cs2">2</span> fair</span><span><span class="cs cs3">3</span> poor</span>
+          <span><span class="cs cs4">4</span> serious</span><span><span class="cs cs5">5</span> critical</span>
+        </div>
+        <div class="small" style="margin-top:4px">Z1 / Z5 end zones (anchorages, bearings), Z2 / Z4 quarter spans, Z3 mid-span.</div>
+      </section>
+    </div>
+    <section>
+      <h2>Observations <span class="small" id="count"></span></h2>
+      <div class="filters">
+        <select id="fSpan"><option value="">all spans</option></select>
+        <select id="fComp"><option value="">all components</option></select>
+        <select id="fCs"><option value="0">any CS</option><option value="3">CS 3 and worse</option><option value="4">CS 4 and worse</option></select>
+        <input id="fText" placeholder="search notes / location">
+      </div>
+      <div class="tablewrap"><table id="obsTable"></table></div>
+    </section>
+  </div>
+</main>
+<script>
+const SEED = [{"span":"S1","component":"G1","location":"Z5","observation":"Leakage","size":"damp patches / efflorescence","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S1","component":"G6","location":"Z3","observation":"Honeycombing","size":"","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S1","component":"G6","location":"Z5","observation":"Leakage","size":"damp patches / efflorescence","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z1","observation":"Leakage","size":"damp patches / efflorescence","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z4","observation":"Cracking","size":"0.39 mm","cs":5,"note":"longitudinal, along bars / duct, rust in crack","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z4","observation":"Spalling","size":"0.18 m2","cs":3,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z4","observation":"Leakage","size":"damp patches / efflorescence","cs":3,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z5","observation":"Cracking","size":"0.45 mm","cs":5,"note":"longitudinal, along bars / duct, rust in crack","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z5","observation":"Spalling","size":"0.05 m2","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z5","observation":"Corrosion staining","size":"","cs":3,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G1","location":"Z5","observation":"Leakage","size":"damp patches / efflorescence","cs":3,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"G6","location":"Z1","observation":"Leakage","size":"damp patches / efflorescence","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S3","component":"G1","location":"Z1","observation":"Leakage","size":"damp patches / efflorescence","cs":3,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S3","component":"G2","location":"Z1","observation":"Leakage","size":"damp patches / efflorescence","cs":2,"note":"","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"EJ","location":"EJ-P1","observation":"Joint distress","size":"","cs":3,"note":"seal torn, debris packed in gap","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"EJ","location":"EJ-P1","observation":"Leakage","size":"","cs":3,"note":"water and silt onto pier cap","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"BRG","location":"G1-B","observation":"Bearing distress","size":"","cs":3,"note":"hardened / restrained, debris around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"BRG","location":"G2-B","observation":"Bearing distress","size":"","cs":4,"note":"hardened / restrained, debris around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"BRG","location":"G3-B","observation":"Bearing distress","size":"","cs":5,"note":"hardened / restrained, debris around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"BRG","location":"G4-B","observation":"Bearing distress","size":"","cs":4,"note":"hardened / restrained, debris around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"BRG","location":"G5-B","observation":"Bearing distress","size":"","cs":4,"note":"hardened / restrained, debris around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"BRG","location":"G6-B","observation":"Bearing distress","size":"","cs":4,"note":"hardened / restrained, debris around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"EJ","location":"EJ-P2","observation":"Joint distress","size":"","cs":3,"note":"seal torn, debris packed in gap","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"EJ","location":"EJ-P2","observation":"Leakage","size":"","cs":4,"note":"water and silt onto pier cap","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"DR","location":"U-6","observation":"Blocked drain","size":"","cs":2,"note":"spout too short, water runs on girder","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"PC","location":"P2","observation":"Leakage","size":"","cs":3,"note":"silt and water stains below S2 end B bearings","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"PC","location":"P2","observation":"Spalling","size":"0.15 m2","cs":3,"note":"pedestal edge spalled under G1-B","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"DR","location":"U-6","observation":"Blocked drain","size":"","cs":3,"note":"spout 150 mm long, discharges on G1","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"WC","location":"near EJ-P2","observation":"Surface deterioration","size":"","cs":3,"note":"ravelling and potholes 2 m either side of the joint","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S3","component":"BRG","location":"G1-A","observation":"Bearing distress","size":"","cs":3,"note":"bulging, silt around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S3","component":"BRG","location":"G2-A","observation":"Bearing distress","size":"","cs":3,"note":"silt around bearing","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S1","component":"DS","location":"bay G2-G3","observation":"Efflorescence","size":"","cs":2,"note":"white deposits along a construction joint","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S1","component":"CB","location":"upstream","observation":"Cracking","size":"0.15 mm","cs":2,"note":"vertical shrinkage cracks at 3-4 m","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S1","component":"AB","location":"A1","observation":"Surface deterioration","size":"","cs":2,"note":"vegetation in bearing shelf drain hole","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S3","component":"FP","location":"downstream","observation":"Surface deterioration","size":"","cs":2,"note":"loose kerb cover slab","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S2","component":"PR","location":"P2","observation":"Leakage","size":"","cs":2,"note":"stains running down pier face","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""},{"span":"S1","component":"PC","location":"P1","observation":"Cracking","size":"0.10 mm","cs":2,"note":"hairline vertical crack, not active","extent":"local","inspector":"S. (year-18 detailed inspection)","date":""}];
+const KEY = "b33-inspection-v1";
+const SPANS = ["S1", "S2", "S3"];
+const G = ["G1", "G2", "G3", "G4", "G5", "G6"];
+const Z = ["Z1", "Z2", "Z3", "Z4", "Z5"];
+const COMPONENTS = {
+  G1: "Girder G1", G2: "Girder G2", G3: "Girder G3", G4: "Girder G4", G5: "Girder G5", G6: "Girder G6",
+  DS: "Deck slab", CG: "Cross girder / diaphragm", FP: "Footpath", CB: "Crash barrier", BRG: "Bearing",
+  EJ: "Expansion joint", DR: "Drainage spout", WC: "Wearing coat", PC: "Pier cap", PR: "Pier", AB: "Abutment"
+};
+const LOCS = {
+  girder: Z.concat(["soffit", "web upstream face", "web downstream face", "anchorage A", "anchorage B"]),
+  DS: ["bay G1-G2", "bay G2-G3", "bay G3-G4", "bay G4-G5", "bay G5-G6", "cantilever U", "cantilever D", "construction joint"],
+  CG: ["end diaphragm A", "cross girder L/2", "end diaphragm B"],
+  FP: ["upstream", "downstream"], CB: ["upstream", "downstream"],
+  BRG: G.flatMap(g => [g + "-A", g + "-B"]),
+  EJ: ["EJ-A1", "EJ-P1", "EJ-P2", "EJ-A2"],
+  DR: [1, 2, 3, 4, 5, 6].flatMap(i => ["U-" + i, "D-" + i]),
+  WC: ["lane 1", "lane 2", "lane 3", "near EJ-P1", "near EJ-P2"],
+  PC: ["P1", "P2"], PR: ["P1", "P2"], AB: ["A1", "A2"]
+};
+const OBS = {
+  concrete: ["Cracking", "Spalling", "Corrosion staining", "Leakage", "Honeycombing", "Surface deterioration", "Efflorescence", "Impact damage"],
+  BRG: ["Bearing distress", "Excessive shear deformation", "Bulging / splitting", "Debris around bearing", "Corroded plates"],
+  EJ: ["Joint distress", "Leakage", "Seal torn / missing", "Debris in gap", "Noisy / loose"],
+  DR: ["Blocked drain", "Spout too short", "Broken spout"],
+  WC: ["Surface deterioration", "Potholes", "Rutting", "Cracking"]
+};
+const CS_TEXT = {1: "Good - no repair needed", 2: "Fair - minor defect, monitor", 3: "Poor - repair at next opportunity",
+                 4: "Serious - repair soon, check structural effect", 5: "Critical - immediate action / restriction"};
+const WEIGHTS = {G: 0.30, DS: 0.12, CG: 0.06, BRG: 0.12, EJ: 0.08, DR: 0.04, PC: 0.08, PR: 0.08, AB: 0.06, FP: 0.02, CB: 0.02, WC: 0.02};
+const $ = id => document.getElementById(id);
+let data = [];
+
+function store(save) {
+  try {
+    if (save) localStorage.setItem(KEY, JSON.stringify(data));
+    else data = JSON.parse(localStorage.getItem(KEY) || "[]");
+  } catch (e) { if (!save) data = []; }
+}
+const group = c => (c && c[0] === "G" && c.length === 2) ? "G" : c;
+const locsFor = c => group(c) === "G" ? LOCS.girder : (LOCS[c] || ["general"]);
+const obsFor = c => OBS[c] || OBS.concrete;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[ch]));
+
+function fill(sel, items, labels) {
+  sel.innerHTML = items.map(v => `<option value="${esc(v)}">${esc(labels ? labels[v] : v)}</option>`).join("");
+}
+function suggestCS() {
+  const o = $("obs").value, c = $("comp").value, v = parseFloat($("size").value);
+  let s = 2, why = "";
+  if (o === "Cracking" && !isNaN(v)) {
+    const edges = group(c) === "G" ? [0.05, 0.10, 0.20, 0.30] : [0.10, 0.20, 0.30, 1.00];
+    s = 1 + edges.filter(e => v > e).length;
+    why = group(c) === "G" ? "PSC girder: any open flexural crack means precompression is lost" : "RC element crack width bands";
+  } else if (o === "Spalling") { s = /expos/i.test($("note").value) ? 4 : 3; why = "4 if bars / strands exposed"; }
+  else if (o === "Corrosion staining") { s = 3; why = "rust means active corrosion behind the cover"; }
+  else if (/Bearing|shear|Bulging/.test(o)) { s = 3; why = "4 if movement is restrained or the bearing is split"; }
+  else if (/Leakage|Joint|Seal|Blocked|short/.test(o)) { s = 3; why = "water is the usual start of the next defect"; }
+  $("cs").value = String(s);
+  $("csHint").textContent = "Suggested CS" + s + (why ? " - " + why : "") + ". Inspector may change it.";
+}
+function updatePath() {
+  $("path").textContent = `B33 → ${$("span").value} → ${COMPONENTS[$("comp").value]} → ${$("loc").value} → ${$("obs").value}`;
+  $("sizeLabel").textContent = $("obs").value === "Cracking" ? "Crack width (mm)" : (/Spall|Honey|Surface/.test($("obs").value) ? "Area (m²)" : "Size / measure");
+}
+function onComp() { fill($("loc"), locsFor($("comp").value)); fill($("obs"), obsFor(group($("comp").value) === "G" ? "G" : $("comp").value)); updatePath(); suggestCS(); }
+
+function rating() {
+  const worst = {};
+  data.forEach(o => { const k = group(o.component); worst[k] = Math.max(worst[k] || 1, +o.cs); });
+  let tot = 0, s = 0;
+  for (const [k, w] of Object.entries(WEIGHTS)) { tot += w; s += w * (5 - (worst[k] || 1)) / 4; }
+  return {worst, bci: data.length ? 100 * s / tot : null};
+}
+function render() {
+  const r = rating();
+  $("bci").textContent = r.bci === null ? "-" : r.bci.toFixed(1);
+  const names = {G: "PSC girders", DS: "Deck slab", CG: "Cross girders", BRG: "Bearings", EJ: "Expansion joints", DR: "Drainage",
+                 PC: "Pier caps", PR: "Piers", AB: "Abutments", FP: "Footpaths", CB: "Crash barriers", WC: "Wearing coat"};
+  $("groupTable").innerHTML = "<tr><th>Component group</th><th>Weight</th><th>Worst CS</th></tr>" +
+    Object.keys(WEIGHTS).map(k => `<tr><td>${names[k]}</td><td class="num">${WEIGHTS[k].toFixed(2)}</td><td>${r.worst[k] ? `<span class="cs cs${r.worst[k]}">${r.worst[k]}</span>` : '<span class="small">no record</span>'}</td></tr>`).join("");
+  const ms = $("mapSpan").value || "S2";
+  let html = '<div class="h"></div>' + Z.map(z => `<div class="h">${z}</div>`).join("");
+  G.forEach(g => {
+    html += `<div class="h">${g}</div>`;
+    Z.forEach(z => {
+      const hits = data.filter(o => o.span === ms && o.component === g && o.location === z);
+      const w = hits.reduce((m, o) => Math.max(m, +o.cs), 0);
+      html += w ? `<div class="cs${w}" title="${esc(hits.map(h => h.observation + " " + (h.size || "")).join("; "))}">${w}</div>` : '<div class="c0">-</div>';
+    });
+  });
+  $("map").innerHTML = html;
+  const fs = $("fSpan").value, fc = $("fComp").value, fcs = +$("fCs").value, ft = $("fText").value.toLowerCase();
+  const rows = data.map((o, i) => [o, i]).filter(([o]) => (!fs || o.span === fs) && (!fc || group(o.component) === fc) && (+o.cs >= fcs)
+       && (!ft || (o.note + " " + o.location + " " + o.observation).toLowerCase().includes(ft)))
+       .sort((a, b) => b[0].cs - a[0].cs);
+  $("count").textContent = `(${rows.length} of ${data.length})`;
+  $("obsTable").innerHTML = "<tr><th>CS</th><th>Span</th><th>Component</th><th>Location</th><th>Observation</th><th>Size</th><th>Notes</th><th></th><th></th></tr>" +
+    rows.map(([o, i]) => `<tr><td><span class="cs cs${o.cs}">${o.cs}</span></td><td>${esc(o.span)}</td><td>${esc(o.component)}</td><td>${esc(o.location)}</td>
+      <td>${esc(o.observation)}</td><td>${esc(o.size)}</td><td>${esc(o.note)}</td><td>${o.photo ? `<img class="thumb" src="${o.photo}" alt="photo">` : ""}</td>
+      <td><button data-del="${i}" title="delete">&times;</button></td></tr>`).join("");
+}
+function add() {
+  const o = {span: $("span").value, component: $("comp").value, location: $("loc").value, observation: $("obs").value,
+             size: $("size").value.trim() ? ($("size").value.trim() + ($("obs").value === "Cracking" ? " mm" : "")) : "",
+             extent: $("extent").value, cs: +$("cs").value, note: $("note").value.trim(), inspector: $("insp").value.trim(), date: $("date").value};
+  const f = $("photo").files[0];
+  const done = () => { data.push(o); store(true); render(); $("msg").textContent = "Added: " + $("path").textContent; $("size").value = ""; $("note").value = ""; $("photo").value = ""; };
+  if (f) {
+    const rd = new FileReader();
+    rd.onload = () => { const img = new Image(); img.onload = () => {
+        const c = document.createElement("canvas"), s = 320 / Math.max(img.width, img.height); c.width = img.width * s; c.height = img.height * s;
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); o.photo = c.toDataURL("image/jpeg", 0.7); done(); };
+      img.src = rd.result; };
+    rd.readAsDataURL(f);
+  } else done();
+}
+function download(name, text, type) {
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], {type})); a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+function toCsv() {
+  const cols = ["span", "component", "location", "observation", "size", "extent", "cs", "note", "inspector", "date"];
+  return cols.join(",") + "\n" + data.map(o => cols.map(c => `"${String(o[c] ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
+}
+
+function init() {
+  if (/light/.test(location.hash)) document.documentElement.dataset.theme = "light";
+  if (/dark/.test(location.hash)) document.documentElement.dataset.theme = "dark";
+  store(false);
+  fill($("span"), SPANS); fill($("mapSpan"), SPANS); $("mapSpan").value = "S2";
+  fill($("comp"), Object.keys(COMPONENTS), COMPONENTS);
+  fill($("cs"), [1, 2, 3, 4, 5], {1: "CS1 good", 2: "CS2 fair", 3: "CS3 poor", 4: "CS4 serious", 5: "CS5 critical"});
+  $("fSpan").innerHTML += SPANS.map(s => `<option>${s}</option>`).join("");
+  $("fComp").innerHTML += ["G", "DS", "CG", "BRG", "EJ", "DR", "WC", "PC", "PR", "AB", "FP", "CB"].map(c => `<option value="${c}">${c === "G" ? "Girders" : COMPONENTS[c]}</option>`).join("");
+  $("csTable").innerHTML = Object.entries(CS_TEXT).map(([k, v]) => `<div><span class="cs cs${k}">${k}</span> ${v}</div>`).join("");
+  $("date").valueAsDate = new Date();
+  onComp();
+  $("comp").onchange = onComp;
+  ["span", "loc", "obs"].forEach(id => $(id).onchange = () => { updatePath(); suggestCS(); });
+  $("size").oninput = suggestCS;
+  $("btnAdd").onclick = add;
+  $("btnReset").onclick = () => { $("size").value = ""; $("note").value = ""; $("msg").textContent = ""; suggestCS(); };
+  ["fSpan", "fComp", "fCs", "mapSpan"].forEach(id => $(id).onchange = render);
+  $("fText").oninput = render;
+  $("obsTable").onclick = e => { const i = e.target.dataset.del; if (i !== undefined && confirm("Delete this observation?")) { data.splice(+i, 1); store(true); render(); } };
+  $("btnSeed").onclick = () => { if (!data.length || confirm("Replace the current records with the year-18 inspection?")) { data = SEED.map(o => ({...o})); store(true); render(); } };
+  $("btnCsv").onclick = () => download("B33_inspection.csv", toCsv(), "text/csv");
+  $("btnJson").onclick = () => download("B33_inspection.json", JSON.stringify(data, null, 1), "application/json");
+  $("btnImport").onclick = () => $("fileJson").click();
+  $("fileJson").onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader();
+    rd.onload = () => { try { const d = JSON.parse(rd.result); if (Array.isArray(d)) { data = d; store(true); render(); } } catch (err) { alert("Not a valid inspection file"); } };
+    rd.readAsText(f); };
+  $("btnPrint").onclick = () => window.print();
+  $("btnClear").onclick = () => { if (confirm("Delete all observations?")) { data = []; store(true); render(); } };
+  if (!data.length && SEED.length) { data = SEED.map(o => ({...o})); }
+  render();
+}
+init();
+</script>
+</body>
+</html>

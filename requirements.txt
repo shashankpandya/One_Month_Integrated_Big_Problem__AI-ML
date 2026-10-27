@@ -1,0 +1,5 @@
+numpy
+scipy
+matplotlib
+# optional, only for the page numbers in the report's contents list
+pymupdf
