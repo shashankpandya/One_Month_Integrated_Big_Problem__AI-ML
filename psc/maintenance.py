@@ -10,7 +10,7 @@ probability mainly sets the priority and what to check next.
 ACTIONS = {
     "routine": ("Routine inspection and monitoring", "continue", "pre- and post-monsoon walk-through, monthly data review"),
     "drain": ("Clean and extend drainage spouts", "within 1 month", "spouts discharge clear of girder soffit, add drip groove"),
-    "joint": ("Replace strip-seal expansion joint", "within 3 months", "stops water and silt reaching bearings, anchorages and pier cap"),
+    "joint": ("Replace the strip seals of the torn expansion joints", "within 3 months", "stops water and silt reaching bearings, anchorages and pier cap"),
     "bearing": ("Jack deck and replace / reset bearings", "within 6 months", "jacking points on end diaphragm (designed for this), lift <= 10 mm"),
     "patch": ("Concrete repair: remove carbonated / delaminated cover, treat bars, polymer-modified mortar", "within 6 months",
               "after marking out by hammer tapping and half-cell map"),
@@ -18,10 +18,10 @@ ACTIONS = {
     "inhibitor": ("Migrating corrosion inhibitor on wet, low-resistivity zones", "with repair", "where HCP is in the uncertain band"),
     "pt_investigation": ("Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages",
                          "within 3 months", "only direct way to confirm strand corrosion inside the duct"),
-    "liftoff": ("Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder", "within 6 months",
+    "liftoff": ("Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder", "within 3 months",
                 "measures the remaining force rather than inferring it"),
-    "assessment": ("Detailed structural assessment with measured losses (SLS decompression, ULS, shear at the end zone)",
-                   "within 3 months", "decides whether strengthening is needed"),
+    "assessment": ("Detailed structural assessment with the measured force (SLS decompression, ULS, shear at the end zone)",
+                   "within 4 months", "uses the results of the tendon investigation and the lift-off test; decides whether strengthening is needed"),
     "ept": ("Provision for external post-tensioning (deviators at cross girders, anchors at end diaphragms)", "if assessment requires",
             "restores lost precompression; design for the measured loss + margin"),
     "crack_inject": ("Epoxy injection of cracks wider than 0.2 mm, sealing of finer cracks", "within 6 months", "after the cause is removed"),
@@ -31,6 +31,9 @@ ACTIONS = {
     "special": ("Special inspection by a bridge engineer (under-bridge unit, close visual of all girders)", "within 2 weeks", ""),
     "reinspect": ("Re-inspection and repeat monitoring campaign after the works", "6 months after works", "new baseline for the repaired bridge"),
 }
+# order in which the actions are listed in a plan: most urgent first, the works after the investigations they depend on
+ORDER = ("load_limit", "special", "drain", "instrument", "joint", "pt_investigation", "liftoff", "assessment", "ept",
+         "bearing", "patch", "inhibitor", "coating", "crack_inject", "routine", "reinspect")
 
 
 def decide(ev):
@@ -54,13 +57,13 @@ def decide(ev):
     if g.get("DR", 1) >= 3:
         why("drain", "blocked or short drain spouts wetting the outer girder (inspection)")
     if g.get("EJ", 1) >= 3:
-        why("joint", "expansion joint seal leaking (inspection)")
+        why("joint", "expansion joint seals torn and leaking (inspection)")
     if ev["bearing_ratio"] < 0.5 or g.get("BRG", 1) >= 4:
         why("bearing", "practically no bearing movement at one end; bearing distress seen at inspection" if ev["bearing_ratio"] < 0.1
             else f"bearing movement at one end {ev['bearing_ratio']:.2f} of the healthy value; bearing distress seen at inspection")
     corrosion_ndt = ev["hcp_min"] < -350 and ev["rho_min"] < 15
     if corrosion_ndt or g.get("G", 1) >= 4:
-        why("patch", f"HCP {ev['hcp_min']:.0f} mV with resistivity {ev['rho_min']:.0f} kΩcm; spalling and rust (NDT, inspection)")
+        why("patch", f"HCP down to {ev['hcp_min']:.0f} mV and resistivity down to {ev['rho_min']:.0f} kΩcm; spalling and rust (NDT, inspection)")
         why("coating", "carbonation front at or beyond the cover in the repaired zones" if ev["carb_margin"] > 0 else "zones with low cover")
         why("inhibitor", "wet zones with potentials in the uncertain band")
     if ev["p"].get("CO", 0) > 0.5 or (corrosion_ndt and ev.get("near_anchorage", False)):
@@ -75,7 +78,8 @@ def decide(ev):
     if ev["crack_w"] > 0.2:
         why("crack_inject", f"crack width {ev['crack_w']:.2f} mm")
     if ev["novelty"] or ev["trend_alarms"]:
-        why("instrument", "monitoring alarms on " + ", ".join(ev["trend_alarms"]) if ev["trend_alarms"] else "novelty alarm on the combined features")
+        why("instrument", f"{len(ev['trend_alarms'])} monitored quantities in alarm (EWMA charts)" if ev["trend_alarms"]
+            else "novelty alarm on the combined features")
     if ev["uls_ratio"] > 1.0:
         why("load_limit", f"M_Ed / M_Rd = {ev['uls_ratio']:.2f} > 1")
     if worst >= 4 or ev["novelty"]:
@@ -84,6 +88,7 @@ def decide(ev):
         why("routine", "no defect beyond CS2, no alarm")
     else:
         why("reinspect", "to confirm the effect of the works and set a new baseline")
+    acts.sort(key=lambda a: ORDER.index(a[0]))
 
     worst_girder = g.get("G", 1)
     # an inspector's CS5 on a girder is reviewed against the structural check before the
@@ -100,7 +105,7 @@ def decide(ev):
         cat = "Good - routine monitoring"
     intervals = {
         "Critical": dict(routine="weekly", principal="immediate special inspection", monitoring="continuous with alarms"),
-        "Serious - detailed investigation": dict(routine="monthly until works", principal="after works, then 1 year",
+        "Serious - detailed investigation": dict(routine="monthly", principal="after works, then 1 year",
                                                  monitoring="continuous, weekly review"),
         "Poor - preventive maintenance": dict(routine="pre/post monsoon", principal="every 2 years", monitoring="monthly review"),
         "Fair - routine monitoring": dict(routine="pre/post monsoon", principal="every 3 years", monitoring="quarterly review"),

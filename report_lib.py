@@ -37,8 +37,8 @@ figure img { max-width: 100%; }
 .toc div span.dots { flex: 1; border-bottom: 1pt dotted #555; margin: 0 4pt 3pt; min-width: 12pt; }
 .toc div.l2 { padding-left: 22pt; }
 .toc div.l1 { font-weight: bold; margin-top: 4pt; }
-.lof div { display: flex; align-items: baseline; font-size: 11.5pt; line-height: 1.45; }
-.lof div span.k { width: 62pt; flex: none; }
+.lof div { display: flex; align-items: flex-end; font-size: 11.5pt; line-height: 1.45; }
+.lof div span.k { width: 62pt; flex: none; align-self: flex-start; }
 .lof div span.t { }
 .lof div span.dots { flex: 1; border-bottom: 1pt dotted #555; margin: 0 4pt 3pt; min-width: 12pt; }
 .titlepage { height: 247mm; display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -133,11 +133,11 @@ class Report:
         return path.as_posix()
 
     def table(self, header, rows, caption=None, num_cols=(), widths=None, tag=None, small=False, full=True):
-        self.tab_no += 1
-        if tag:
-            self.refs[tag] = self.tab_no
         out = []
-        if caption:
+        if caption:                   # uncaptioned tables (e.g. the notation list) are not numbered
+            self.tab_no += 1
+            if tag:
+                self.refs[tag] = self.tab_no
             out.append(f'<div class="tcap"><b>Table {self.tab_no}:</b> {caption}</div>')
             self.tabs.append((self.tab_no, caption))
         cls = " ".join(c for c in ("full" if full else "", "sm" if small else "") if c)
@@ -164,7 +164,8 @@ class Report:
         rows = []
         for n, cap in items:
             short = re.sub(r"<[^>]+>", "", cap).split(". ")[0].split(": ")[0]
-            short = short if len(short) < 95 else short[:92].rsplit(" ", 1)[0] + " ..."
+            if short.count("(") > short.count(")"):          # cut inside a bracket, e.g. "(boxes: quartiles ..."
+                short = short[:short.rfind(" (")]
             pg = pages.get(f"{kind}{n}", "") if pages else ""
             rows.append(f'<div><span class="k">{kind.capitalize()} {n}</span><span class="t">{short}</span>'
                         f'<span class="dots"></span><span>{pg}</span></div>')

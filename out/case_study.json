@@ -3,12 +3,12 @@
   "f1 residual": {
    "first_alarm_year": 12.5,
    "limit": 1.0,
-   "slope_last3y_per_year": 0.02992764449922543
+   "slope_last3y_per_year": 0.02992866039925228
   },
   "f2 residual": {
    "first_alarm_year": 13.166666666666666,
    "limit": 1.0,
-   "slope_last3y_per_year": 0.038530224690687925
+   "slope_last3y_per_year": 0.03853028000156946
   },
   "bearing B movement": {
    "first_alarm_year": 10.5,
@@ -39,13 +39,13 @@
  "campaign_raw": {
   "T": 27.5,
   "age": 18.0,
-  "f1": 3.7511008410081312,
-  "f2": 3.935076729916055,
-  "f3": 8.813040597272588,
-  "f4": 14.531555456795145,
-  "z1": 0.01761367470148318,
-  "mac1": 0.987985458038843,
-  "mac2": 0.9793505955739713,
+  "f1": 3.7511008410245936,
+  "f2": 3.935076730015957,
+  "f3": 8.813041692011476,
+  "f4": 14.53155545400883,
+  "z1": 0.01761367471253183,
+  "mac1": 0.9879854588729143,
+  "mac2": 0.9793505952814072,
   "a_rms": 0.6311112000763117,
   "a_max": 13.21204469902584,
   "phi_G1": 1.085576723158786,
@@ -89,19 +89,19 @@
   "joint_leak": 1.0
  },
  "campaign_features": {
-  "r_f1": 0.6573729460884324,
-  "r_f2": 0.45801797647735915,
-  "r_f3": 0.20506876581260525,
-  "r_f4": 0.06118767852313211,
-  "mac1": 0.987985458038843,
-  "mac2": 0.9793505955739713,
+  "r_f1": 0.6573729394202298,
+  "r_f2": 0.4580175961606752,
+  "r_f3": 0.20508161786739787,
+  "r_f4": 0.06118798577976929,
+  "mac1": 0.9879854588729143,
+  "mac2": 0.9793505952814072,
   "phi_asym": 0.1596592605891276,
-  "z1": 0.01761367470148318,
-  "r_d_mean": 0.3969918920806421,
-  "r_d_asym": 0.09315881941191151,
-  "r_d_max": 0.830925365027241,
-  "r_e_mean": -0.07646961132862155,
-  "r_e_max": 7.325399845979334,
+  "z1": 0.01761367471253183,
+  "r_d_mean": 0.396991892078276,
+  "r_d_asym": 0.09315881957988381,
+  "r_d_max": 0.8309253650331954,
+  "r_e_mean": -0.0764696113351017,
+  "r_e_max": 7.325399845901373,
   "lev_mean": 1.6565683277009782,
   "lev_asym": -6.374877205854377,
   "lev_min": -2.371962737237532,
@@ -126,55 +126,55 @@
  },
  "campaign_girders": {
   "d": [
-   0.39434343606438915,
-   0.4305335506990815,
-   0.830925365027241,
-   0.703425966715173,
-   -0.2784615826745096,
-   0.30118461665247764
+   0.39434343614999534,
+   0.4305335507383461,
+   0.8309253650331954,
+   0.7034259666967841,
+   -0.2784615827187764,
+   0.30118461657011153
   ],
   "e": [
-   -2.448244473299596,
-   -6.605283389330225,
-   7.325399845979334,
-   -0.11681909717079009,
-   -1.8107847176940481,
-   3.196914163543596
+   -2.448244473210579,
+   -6.605283389340315,
+   7.325399845901373,
+   -0.11681909715100858,
+   -1.8107847176567162,
+   3.1969141634466354
   ]
  },
  "ml": {
-  "novelty_score": 34516.91671798888,
-  "novelty_threshold": 47.59712538902483,
+  "novelty_score": 34516.5732597974,
+  "novelty_threshold": 47.587368354976526,
   "novelty": true,
   "p_fused": {
-   "PL": 0.15442980222391986,
-   "CD": 0.05922260418923551,
+   "PL": 0.13492980222391987,
+   "CD": 0.060249637958940276,
    "CR": 0.0305,
    "CO": 0.9966666666666666,
-   "BR": 0.9456666666666667,
-   "LS": 0.04766666666666666
+   "BR": 0.9094191616766467,
+   "LS": 0.044333333333333336
   },
   "p_vibration": {
-   "PL": 0.18202923083349914,
-   "CD": 0.07116757333434634,
-   "CR": 0.05129069292655623,
-   "CO": 0.108949650100849,
-   "BR": 0.8422023809523809,
-   "LS": 0.006663170074073328
+   "PL": 0.09853885048643116,
+   "CD": 0.07074001148414333,
+   "CR": 0.0952160922034179,
+   "CO": 0.08777127338386947,
+   "BR": 0.8108333333333334,
+   "LS": 0.008568926855510934
   },
-  "pl_gpr_mean": 9.48180778706901,
-  "pl_gpr_sd": 3.1967538984716115,
+  "pl_gpr_mean": 9.481821376879298,
+  "pl_gpr_sd": 3.19675161221512,
   "pl_G1_levelling": 2.2807334011899343,
   "pl_G1_vw": 5.839436390220674,
   "pl_G1_combined": 4.434433688195108,
   "pl_G1_sd": 1.6336764784278155,
   "loc_proba": [
-   0.55029570731905,
-   0.15117598284919234,
-   0.07993365176246932,
-   0.06911666975224265,
-   0.04870380741669385,
-   0.10077418090035183
+   0.5220423423465147,
+   0.17912353233385694,
+   0.0987016763053749,
+   0.057462270320715894,
+   0.03704719627662786,
+   0.1056229824169098
   ]
  },
  "ndt_clusters": {
@@ -319,16 +319,46 @@
   "category": "Serious - detailed investigation",
   "actions": [
    [
+    "Special inspection by a bridge engineer (under-bridge unit, close visual of all girders)",
+    "within 2 weeks",
+    "serious defect or monitoring alarm",
+    ""
+   ],
+   [
     "Clean and extend drainage spouts",
     "within 1 month",
     "blocked or short drain spouts wetting the outer girder (inspection)",
     "spouts discharge clear of girder soffit, add drip groove"
    ],
    [
-    "Replace strip-seal expansion joint",
+    "Additional instrumentation: crack gauges, extra VW gauges at the end zone, bearing LVDTs on all girders",
+    "within 1 month",
+    "6 monitored quantities in alarm (EWMA charts)",
+    "to watch the suspect area until the repair"
+   ],
+   [
+    "Replace the strip seals of the torn expansion joints",
     "within 3 months",
-    "expansion joint seal leaking (inspection)",
+    "expansion joint seals torn and leaking (inspection)",
     "stops water and silt reaching bearings, anchorages and pier cap"
+   ],
+   [
+    "Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages",
+    "within 3 months",
+    "corrosion near the tendon anchorages; probability of corrosion from the models 1.00",
+    "only direct way to confirm strand corrosion inside the duct"
+   ],
+   [
+    "Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder",
+    "within 3 months",
+    "estimated extra loss of prestress in G1 4.4 \u00b1 3.2 %; trend alarms on VW strain G1, level G1",
+    "measures the remaining force rather than inferring it"
+   ],
+   [
+    "Detailed structural assessment with the measured force (SLS decompression, ULS, shear at the end zone)",
+    "within 4 months",
+    "soffit margin against cracking only +0.09 MPa (rare combination) with the estimated loss",
+    "uses the results of the tendon investigation and the lift-off test; decides whether strengthening is needed"
    ],
    [
     "Jack deck and replace / reset bearings",
@@ -339,14 +369,8 @@
    [
     "Concrete repair: remove carbonated / delaminated cover, treat bars, polymer-modified mortar",
     "within 6 months",
-    "HCP -456 mV with resistivity 11 k\u03a9cm; spalling and rust (NDT, inspection)",
+    "HCP down to -456 mV and resistivity down to 11 k\u03a9cm; spalling and rust (NDT, inspection)",
     "after marking out by hammer tapping and half-cell map"
-   ],
-   [
-    "Anti-carbonation coating on repaired and low-cover zones",
-    "after repair",
-    "zones with low cover",
-    "extends time to re-initiation"
    ],
    [
     "Migrating corrosion inhibitor on wet, low-resistivity zones",
@@ -355,40 +379,16 @@
     "where HCP is in the uncertain band"
    ],
    [
-    "Tendon investigation: GPR to locate ducts, impact-echo for voids, borescope through drilled ports at anchorages",
-    "within 3 months",
-    "corrosion near the tendon anchorages; probability of corrosion from the models 1.00",
-    "only direct way to confirm strand corrosion inside the duct"
-   ],
-   [
-    "Prestress check: lift-off or saw-cut (stress-release) test on the suspect girder",
-    "within 6 months",
-    "estimated extra loss of prestress in G1 4.4 \u00b1 3.2 %; trend alarms on VW strain G1, level G1",
-    "measures the remaining force rather than inferring it"
-   ],
-   [
-    "Detailed structural assessment with measured losses (SLS decompression, ULS, shear at the end zone)",
-    "within 3 months",
-    "soffit margin against cracking only +0.09 MPa (rare combination) with the estimated loss",
-    "decides whether strengthening is needed"
+    "Anti-carbonation coating on repaired and low-cover zones",
+    "after repair",
+    "zones with low cover",
+    "extends time to re-initiation"
    ],
    [
     "Epoxy injection of cracks wider than 0.2 mm, sealing of finer cracks",
     "within 6 months",
     "crack width 0.45 mm",
     "after the cause is removed"
-   ],
-   [
-    "Additional instrumentation: crack gauges, extra VW gauges at the end zone, bearing LVDTs on all girders",
-    "within 1 month",
-    "monitoring alarms on f1 residual, f2 residual, bearing B movement, bearing A movement, VW strain G1, level G1",
-    "to watch the suspect area until the repair"
-   ],
-   [
-    "Special inspection by a bridge engineer (under-bridge unit, close visual of all girders)",
-    "within 2 weeks",
-    "serious defect or monitoring alarm",
-    ""
    ],
    [
     "Re-inspection and repeat monitoring campaign after the works",
@@ -398,7 +398,7 @@
    ]
   ],
   "intervals": {
-   "routine": "monthly until works",
+   "routine": "monthly",
    "principal": "after works, then 1 year",
    "monitoring": "continuous, weekly review"
   },

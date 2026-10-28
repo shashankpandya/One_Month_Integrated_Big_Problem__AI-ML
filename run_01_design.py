@@ -223,8 +223,9 @@ summary = dict(
     rare_min_bot=worst("V rare, inf", "bot", min),
     frequent_min_bot=worst("V frequent, inf", "bot", min),
     qp_min_bot=worst("V quasi, inf", "bot", min),
-    rare_max_top_girder=worst("V rare, sup", "top", max),
-    rare_max_slab=worst("V rare, sup", "slab", max),
+    # prestress relieves the top fibre, so its lower value (0.9 Pm, "inf") governs the top compression
+    rare_max_top_girder=max(worst("V rare, inf", "top", max), worst("V rare, sup", "top", max)),
+    rare_max_slab=max(worst("V rare, inf", "slab", max), worst("V rare, sup", "slab", max)),
     qp_max_bot=worst("V quasi, sup", "bot", max),
     initial_service_max_top=worst("IV open to traffic (90 d, rare)", "top", max),
 )

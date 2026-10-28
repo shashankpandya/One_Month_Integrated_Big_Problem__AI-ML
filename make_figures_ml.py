@@ -307,7 +307,7 @@ def fig_case_ml(cs):
     ax.set_xticks(x, [SHORT[m] for m in MECHS], rotation=35, ha="right", fontsize=9)
     ax.set_ylim(0, 1.16); ax.set_ylabel("probability")
     ax.set_title("(a) Probability of each mechanism")
-    ax.legend(loc="upper left", fontsize=9)
+    ax.legend(loc="upper left", bbox_to_anchor=(0.0, 0.86), fontsize=9)      # below the * markers
     ax = axs[1]
     d = cs["campaign_girders"]["d"]; e = cs["campaign_girders"]["e"]
     xx = np.arange(6)

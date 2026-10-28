@@ -18,14 +18,14 @@ synthetic data -> features -> AI/ML assessment -> year-18 case study -> maintena
 
 ## Running it
 
-Python 3 with numpy, scipy and matplotlib (nothing else; the ML methods are in `psc/mlkit.py`).
+Python 3 with numpy, scipy and matplotlib (the ML methods are written out in `psc/mlkit.py`); pymupdf and Edge or Chrome are needed only to print the report.
 
 ```
-python run_01_design.py        # analysis, prestressing, checks          (~2 min)
-python run_02_baseline.py      # commissioning, model updating, 1 year    (~5 min)
-python run_03_library.py       # 3600 synthetic campaigns                 (~10-20 min)
-python run_04_ml.py            # novelty, random forests, GPR, ...        (~2 min)
-python run_05_case_study.py    # 18 years of monitoring + year-18 assessment
+python run_01_design.py        # analysis, prestressing, checks          (~1.5 min)
+python run_02_baseline.py      # commissioning, model updating, 1 year    (~1.5 min)
+python run_03_library.py       # 3600 synthetic campaigns                 (~6 min)
+python run_04_ml.py            # novelty, random forests, GP regression   (~0.5 min)
+python run_05_case_study.py    # 18 years of monitoring, year-18 case     (~0.5 min)
 python verify.py               # independent hand checks -> out/verification.json
 python make_figures.py all
 python inspection_app/build_app.py
@@ -45,4 +45,4 @@ python build_report.py         # HTML + PDF (prints with Edge / Chrome headless)
 | `out/` | results (json), data (csv), figures |
 
 All measurements are synthetic. The "real bridge" in the case study is a model with parameters hidden
-from the assessment; see chapter 5 and 14 of the report.
+from the assessment; see chapters 5 and 14 of the report.

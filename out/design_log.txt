@@ -100,7 +100,7 @@ diff_shr: bottom -0.39 top girder -0.01 top slab -0.33
    x= 1.38 V rare, sup                        top  +5.60 bot  +4.90
    x= 1.38 V frequent, inf                    top  +4.93 bot  +3.53
 limits: {'transfer1': 17.28, 'transfer2': 21.6, 'rare_g': 21.6, 'rare_s': 19.2, 'qp_g': 16.2, 'qp_s': 14.4, 'fctm': 3.3}
-governing: {'transfer1_max_comp': np.float64(6.79), 'transfer1_min': np.float64(2.39), 'transfer2_max_comp': np.float64(18.42), 'transfer2_min_top': np.float64(0.92), 'deck_min_top': np.float64(4.61), 'rare_min_bot': np.float64(-2.27), 'frequent_min_bot': np.float64(-0.85), 'qp_min_bot': np.float64(2.68), 'rare_max_top_girder': np.float64(10.4), 'rare_max_slab': np.float64(6.48), 'qp_max_bot': np.float64(8.76), 'initial_service_max_top': np.float64(9.94)}
+governing: {'transfer1_max_comp': np.float64(6.79), 'transfer1_min': np.float64(2.39), 'transfer2_max_comp': np.float64(18.42), 'transfer2_min_top': np.float64(0.92), 'deck_min_top': np.float64(4.61), 'rare_min_bot': np.float64(-2.27), 'frequent_min_bot': np.float64(-0.85), 'qp_min_bot': np.float64(2.68), 'rare_max_top_girder': np.float64(11.64), 'rare_max_slab': np.float64(6.48), 'qp_max_bot': np.float64(8.76), 'initial_service_max_top': np.float64(9.94)}
 
 == ULS flexure (mid-span) ==
 G1: MEd=12446 MRd=16468 kNm  ratio=0.76  x=252 mm (x/d=0.135) fp=1391 MPa eps_p=27.88e-3

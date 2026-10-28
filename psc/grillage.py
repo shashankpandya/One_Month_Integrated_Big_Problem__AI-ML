@@ -6,7 +6,7 @@ Longitudinal members = composite girders, transverse members = deck slab strips,
 replaced by T-beams (cross girder + slab) at the cross-girder lines.
 Supports are elastomeric bearings: vertical springs, plus an optional
 longitudinal restraint that couples the two end rotations of a girder line
-(this is how a seized bearing shows up in a 2-D grillage, see report 1.11).
+(this is how a seized bearing shows up in a 2-D grillage, see report Section 10.2).
 """
 import numpy as np
 from scipy.linalg import eigh, cho_factor, cho_solve

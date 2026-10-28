@@ -1,6 +1,6 @@
 [
  {
-  "check": "precast area (polygon vs pieces)",
+  "check": "precast girder area: section routine vs sum of five pieces",
   "computed": 0.8550000000000002,
   "hand": 0.855,
   "rel_diff": 2.597012923099781e-16,
@@ -10,17 +10,17 @@
   "note": ""
  },
  {
-  "check": "precast centroid height",
+  "check": "precast girder centroid height",
   "computed": 0.9120492202729046,
   "hand": 0.9131213450292397,
   "rel_diff": 0.0011741317429183325,
   "tol": 0.01,
   "ok": true,
   "unit": "m",
-  "note": "trapezoid centroids approximated at mid-height"
+  "note": "tapers taken at mid-height"
  },
  {
-  "check": "sum of girder mid-span moments, 10 kN/m per girder",
+  "check": "10 kN/m on every girder: sum of mid-span moments vs 6wL\u00b2/8",
   "computed": 8149.394337191257,
   "hand": 8167.5,
   "rel_diff": 0.0022167937323223307,
@@ -30,7 +30,7 @@
   "note": ""
  },
  {
-  "check": "mid-span deflection, inner girder",
+  "check": "10 kN/m on every girder: inner girder deflection vs 5wL\u2074/384EI + bearing",
   "computed": 6.782419475934256,
   "hand": 6.792245927043594,
   "rel_diff": 0.0014467160369169459,
@@ -40,17 +40,17 @@
   "note": ""
  },
  {
-  "check": "G1 LL moment: grillage vs Courbon",
-  "computed": 2456.660808740058,
-  "hand": 2426.075325743364,
-  "rel_diff": 0.012606979953238966,
+  "check": "G1 live-load moment: grillage vs Courbon",
+  "computed": 2426.075325743364,
+  "hand": 2456.660808740058,
+  "rel_diff": 0.012450022765812993,
   "tol": 0.05,
   "ok": true,
   "unit": "kNm",
   "note": "Courbon valid here: L/B = 2.06, stiff cross girders"
  },
  {
-  "check": "Class A max mid-span moment (one train)",
+  "check": "Class A train, maximum mid-span moment vs influence line by hand",
   "computed": 3171.6499999999996,
   "hand": 3171.6499999999996,
   "rel_diff": 0.0,
@@ -60,7 +60,7 @@
   "note": ""
  },
  {
-  "check": "C3 force after friction at mid-span",
+  "check": "cable C3, force after friction at mid-span vs exp(\u2212(\u03bc\u03b8 + kx))",
   "computed": 2219.819688098252,
   "hand": 2219.6022911338673,
   "rel_diff": 9.794410703796773e-05,
@@ -77,10 +77,10 @@
   "tol": 0.25,
   "ok": true,
   "unit": "kN",
-  "note": "hand: (n-1)/2n rule, mean age 20 d"
+  "note": "hand: (n \u2212 1)/2n rule, mean age 20 days"
  },
  {
-  "check": "G1 soffit stress, quasi-permanent (0.9 Pm)",
+  "check": "G1 soffit stress, quasi-permanent, 0.9Pm: P/A + Pe/Z \u2212 M/Z",
   "computed": 3.3193002675903243,
   "hand": 3.3651629819778215,
   "rel_diff": 0.013628675530164705,
@@ -90,7 +90,7 @@
   "note": ""
  },
  {
-  "check": "G1 ULS moment capacity",
+  "check": "G1 moment of resistance vs yielding strands \u00d7 lever arm",
   "computed": 16468.194730252704,
   "hand": 16491.38063204408,
   "rel_diff": 0.0014059406127783789,
@@ -100,7 +100,7 @@
   "note": ""
  },
  {
-  "check": "bearing movement per degC (healthy)",
+  "check": "bearing movement per \u00b0C vs \u03b1L/2",
   "computed": 0.1924337052620604,
   "hand": 0.198,
   "rel_diff": 0.028112599686563624,
@@ -110,10 +110,10 @@
   "note": ""
  },
  {
-  "check": "f1, twin vs simply supported beam formula",
-  "computed": 3.7407068083052,
-  "hand": 3.8421603125874833,
-  "rel_diff": 0.026405328260225545,
+  "check": "f1 of the twin vs simply supported beam formula",
+  "computed": 3.74070646621404,
+  "hand": 3.842159947821384,
+  "rel_diff": 0.026405324865476015,
   "tol": 0.04,
   "ok": true,
   "unit": "Hz",
@@ -127,7 +127,7 @@
   "tol": 0.15,
   "ok": true,
   "unit": "mm",
-  "note": "hand: 10 % of the elastic Pe camber x (1 + chi phi)"
+  "note": "hand: 10 % of the elastic camber due to Pe \u00d7 (1 + \u03c7\u03c6)"
  },
  {
   "check": "VW strain change for 10 % prestress loss",
@@ -141,9 +141,9 @@
  },
  {
   "check": "identified f1 from a simulated 30 min record",
-  "computed": 3.7523650195171676,
-  "hand": 3.7407068083052,
-  "rel_diff": 0.0031165797827522384,
+  "computed": 3.7523646932585155,
+  "hand": 3.74070646621404,
+  "rel_diff": 0.003116584300257767,
   "tol": 0.004,
   "ok": true,
   "unit": "Hz",
@@ -151,52 +151,53 @@
  },
  {
   "check": "identified f3 from a simulated 30 min record",
-  "computed": 8.837289562450234,
-  "hand": 8.815099007967447,
-  "rel_diff": 0.002517334684809577,
+  "computed": 8.837289780290902,
+  "hand": 8.815096335399975,
+  "rel_diff": 0.002517663340989493,
   "tol": 0.004,
   "ok": true,
   "unit": "Hz",
   "note": ""
  },
  {
-  "check": "updated E_scale vs value used to create the data",
-  "computed": 1.0549614861541947,
+  "check": "model updating: modulus factor vs value used to make the data",
+  "computed": 1.0549638770556602,
   "hand": 1.06,
-  "rel_diff": 0.004753314948872959,
+  "rel_diff": 0.004751059381452698,
   "tol": 0.06,
   "ok": true,
-  "unit": "-",
+  "unit": "",
   "note": ""
  },
  {
-  "check": "updated barrier vs value used to create the data",
-  "computed": 0.35978783664470143,
+  "check": "model updating: share of barrier stiffness vs value used to make the data",
+  "computed": 0.35979154803915375,
   "hand": 0.35,
-  "rel_diff": 0.027965247556289867,
+  "rel_diff": 0.02797585154043936,
   "tol": 0.06,
   "ok": true,
-  "unit": "-",
+  "unit": "",
   "note": ""
  },
  {
-  "check": "updated E_dyn vs value used to create the data",
-  "computed": 1.2449882309475362,
+  "check": "model updating: dynamic / static modulus vs value used to make the data",
+  "computed": 1.2449844347296495,
   "hand": 1.24,
-  "rel_diff": 0.004022766893174354,
+  "rel_diff": 0.0040197054271366855,
   "tol": 0.06,
   "ok": true,
-  "unit": "-",
+  "unit": "",
   "note": ""
  },
  {
-  "check": "novelty false alarm rate on healthy test data",
+  "check": "novelty detector, false-alarm rate on healthy test data vs design value",
   "computed": 0.03308823529411765,
   "hand": 0.01,
   "rel_diff": 0.023088235294117646,
   "tol": 0.03,
   "ok": true,
-  "unit": "-",
-  "note": "99 % threshold from training data; small test sample"
+  "unit": "",
+  "note": "99 % threshold from training data; small test sample",
+  "absolute": true
  }
 ]
